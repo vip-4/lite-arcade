@@ -1,0 +1,9 @@
+# 目录尾斜杠规范化：避免同一内容出现两个 URL，影响 SEO 收录与权重分散
+/games            /games/              301
+/about            /about/              301
+/games/snake      /games/snake/        301
+/games/2048       /games/2048/         301
+/games/breakout   /games/breakout/     301
+/games/tetris     /games/tetris/       301
+/games/memory     /games/memory/       301
+/games/bird       /games/bird/         301
