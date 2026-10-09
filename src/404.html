@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="{{SITE_LANG}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>页面不存在 — {{SITE_SHORT_NAME}}</title>
+<meta name="robots" content="noindex, follow">
+<meta name="description" content="请求的页面不存在。返回 Lite Arcade 首页，继续玩六款免安装的开源网页小游戏。">
+<meta name="theme-color" content="{{THEME_COLOR}}">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+
+<body>
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="./" aria-label="{{SITE_NAME}} 首页">
+      <span class="brand-mark" aria-hidden="true">LA</span>
+      <span class="brand-text">{{SITE_SHORT_NAME}}</span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="./">首页</a>
+      <a href="./games/">全部游戏</a>
+      <a href="./about/">关于与 GEO</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="section wrap" style="min-height:52vh;padding-top:70px;text-align:center">
+    <span class="eyebrow">404</span>
+    <h1>页面不存在</h1>
+    <p style="color:var(--text-dim);max-width:56ch;margin:0 auto 26px">
+      你访问的地址没有对应内容。可以回到首页，或直接进入游戏列表继续玩。
+    </p>
+    <div class="hero-cta" style="justify-content:center">
+      <a class="btn btn-primary" href="./">返回首页</a>
+      <a class="btn btn-ghost" href="./games/">浏览全部游戏</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-bottom" style="margin-top:0;border-top:0">
+    <span>© <span class="year">{{YEAR}}</span> {{SITE_AUTHOR}} · MIT 许可</span>
+    <span><a href="./sitemap.xml">sitemap.xml</a> · <a href="./llms.txt">llms.txt</a></span>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,93 @@
+{
+  "fetchedAt": "2026-10-10",
+  "note": "本目录由 Lite Arcade 构建流程从四个公开来源采集并人工筛选，数据快照时间见 fetchedAt。第三方项目保留各自原许可，条目仅作索引，版权归原作者所有。",
+  "sources": [
+    {
+      "id": "src-itchio",
+      "label": "itch.io 开源榜",
+      "url": "https://itch.io/games/tag-open-source",
+      "desc": "itch.io 上带 open-source 标签的游戏，覆盖模拟器、RTS、竞速与独立佳作。",
+      "method": "抓取 https://itch.io/games/tag-open-source 列表页，按可核实条目人工筛选。"
+    },
+    {
+      "id": "src-github",
+      "label": "GitHub Trending",
+      "url": "https://github.com/trending",
+      "desc": "GitHub 每日趋势榜中与游戏相关的仓库，含引擎、示例游戏与后端框架。",
+      "method": "抓取 https://github.com/trending?since=daily 并结合 GitHub Search API（topic:game / topic:javascript，按 star 排序）。"
+    },
+    {
+      "id": "src-ludumdare",
+      "label": "Ludum Dare",
+      "url": "https://github.com/orgs/LudumDare/repositories",
+      "desc": "Ludum Dare 游戏 jam 的参赛作品源码，通常含完整 48/72 小时开发流程。",
+      "method": "GitHub Search API：topic:ludum-dare，按 star 排序取前 25。"
+    },
+    {
+      "id": "src-sgt",
+      "label": "Simple Game Tutorials",
+      "url": "https://simplegametutorials.github.io",
+      "desc": "以 LÖVE 与 Pygame Zero 复刻的 11 款经典小游戏教程，代码极简，适合移植到 Web。",
+      "method": "读取 SimpleGameTutorials/SimpleGameTutorials.github.io 仓库目录树。"
+    }
+  ],
+  "items": [
+    { "name": "Mindustry", "url": "https://anuke.itch.io/mindustry", "source": "itchio", "tags": ["塔防", "沙盒", "自动化"], "lang": "Java", "stars": null, "desc": "开源沙盒塔防：采集资源、铺设传送带、构建自动防御线。" },
+    { "name": "Friday Night Funkin'", "url": "https://ninja-muffin24.itch.io/funkin", "source": "itchio", "tags": ["音游", "节奏"], "lang": "Haxe", "stars": null, "desc": "开源节奏对战音乐游戏，按拍击键击败对手。" },
+    { "name": "Battle for Wesnoth", "url": "https://wesnoth.itch.io/battle-for-wesnoth", "source": "itchio", "tags": ["策略", "回合制"], "lang": "C++", "stars": null, "desc": "开源奇幻回合制策略，含完整战役与多人对战。" },
+    { "name": "OpenRA", "url": "https://openra.itch.io/openra", "source": "itchio", "tags": ["RTS", "重制"], "lang": "C#", "stars": null, "desc": "经典即时战略重制项目，支持红警、命令与征服等模组。" },
+    { "name": "RetroArch", "url": "https://retroarchofficial.itch.io/retroarch", "source": "itchio", "tags": ["模拟器", "前端"], "lang": "C", "stars": null, "desc": "libretro 官方前端，统一运行各类模拟器核心。" },
+    { "name": "SuperTuxKart", "url": "https://supertuxkart.itch.io/supertuxkart", "source": "itchio", "tags": ["竞速", "3D"], "lang": "C++", "stars": null, "desc": "开源 3D 卡丁车竞速，支持单机与局域网对战。" },
+    { "name": "0 A.D.", "url": "https://play0ad.itch.io/0ad", "source": "itchio", "tags": ["RTS", "历史"], "lang": "C++", "stars": null, "desc": "开源古代战争即时战略，免费且无内购。" },
+    { "name": "Bugdom", "url": "https://jorio.itch.io/bugdom", "source": "itchio", "tags": ["平台", "3D"], "lang": "C", "stars": null, "desc": "经典 3D 平台跳跃游戏，以昆虫视角穿越庭院关卡，已开源。" },
+    { "name": "Nanosaur", "url": "https://jorio.itch.io/nanosaur", "source": "itchio", "tags": ["射击", "3D"], "lang": "C", "stars": null, "desc": "恐龙题材 3D 动作射击，Pangea Software 经典作品开源版。" },
+    { "name": "Cro-Mag Rally", "url": "https://jorio.itch.io/cromagrally", "source": "itchio", "tags": ["竞速", "3D"], "lang": "C", "stars": null, "desc": "史前题材卡丁车竞速，支持多人对战，已开源。" },
+    { "name": "Taisei Project", "url": "https://akaricchi.itch.io/taisei", "source": "itchio", "tags": ["弹幕", "射击"], "lang": "C", "stars": null, "desc": "东方同人弹幕射击游戏的开源复刻实现。" },
+    { "name": "Open Surge", "url": "https://alemart.itch.io/opensurge", "source": "itchio", "tags": ["平台", "引擎"], "lang": "C++", "stars": null, "desc": "开源 2D 平台游戏引擎，附带可编辑的示例关卡。" },
+    { "name": "Marble Marcher", "url": "https://codeparade.itch.io/marblemarcher", "source": "itchio", "tags": ["竞速", "分形"], "lang": "C++", "stars": null, "desc": "基于分形地形生成的弹球竞速游戏。" },
+    { "name": "Dog Walk", "url": "https://blenderstudio.itch.io/dogwalk", "source": "itchio", "tags": ["3D", "Blender"], "lang": "Blender/UPBGE", "stars": null, "desc": "Blender Studio 出品的开源 3D 游戏，全流程使用 Blender 制作。" },
+    { "name": "Thrive", "url": "https://revolutionarygames.itch.io/thrive", "source": "itchio", "tags": ["模拟", "进化"], "lang": "C#", "stars": null, "desc": "开源进化模拟游戏，从单细胞逐步演化到文明阶段。" },
+    { "name": "Super Video Golf", "url": "https://fallahn.itch.io/super-video-golf", "source": "itchio", "tags": ["体育", "像素"], "lang": "C++", "stars": null, "desc": "开源像素风 2D 高尔夫球游戏。" },
+    { "name": "Libre Train Sim", "url": "https://jean28518.itch.io/libre-train-sim", "source": "itchio", "tags": ["模拟", "3D"], "lang": "Godot", "stars": null, "desc": "开源列车驾驶模拟游戏。" },
+    { "name": "Varooom-3D", "url": "https://gvaliente.itch.io/varooom-3d", "source": "itchio", "tags": ["竞速", "GBA"], "lang": "C++", "stars": null, "desc": "GBA 平台开源 3D 竞速游戏。" },
+    { "name": "Gopher64", "url": "https://loganmc10.itch.io/gopher64", "source": "itchio", "tags": ["模拟器"], "lang": "Go", "stars": null, "desc": "用 Go 编写的开源 Nintendo 64 模拟器。" },
+    { "name": "Pocket Bird", "url": "https://idreesinc.itch.io/pocket-bird", "source": "itchio", "tags": ["掌机", "像素"], "lang": "C", "stars": null, "desc": "面向 Game Boy 等掌机的开源像素游戏。" },
+
+    { "name": "PixiJS", "url": "https://github.com/pixijs/pixijs", "source": "github", "tags": ["引擎", "WebGL"], "lang": "TypeScript", "stars": 48318, "desc": "高性能 2D WebGL 渲染引擎，网页游戏开发首选之一。" },
+    { "name": "GDevelop", "url": "https://github.com/4ian/GDevelop", "source": "github", "tags": ["引擎", "无代码"], "lang": "C++", "stars": 27309, "desc": "开源跨平台游戏引擎，可视化事件系统，无需编程即可做游戏。" },
+    { "name": "2048", "url": "https://github.com/gabrielecirulli/2048", "source": "github", "tags": ["益智"], "lang": "JavaScript", "stars": 13418, "desc": "经典 2048 官方源码，单文件即可运行的合并数字游戏。" },
+    { "name": "Nakama", "url": "https://github.com/heroiclabs/nakama", "source": "github", "tags": ["后端", "多人"], "lang": "Go", "stars": 13483, "desc": "开源游戏服务器：匹配、排行榜、聊天与社交系统。" },
+    { "name": "Kaboom.js", "url": "https://github.com/replit/kaboom", "source": "github", "tags": ["引擎", "轻量"], "lang": "JavaScript", "stars": 2735, "desc": "极简 JavaScript 游戏库，几十行代码即可做出完整小游戏。" },
+    { "name": "Clumsy Bird", "url": "https://github.com/ellisonleao/clumsy-bird", "source": "github", "tags": ["街机"], "lang": "JavaScript", "stars": 1627, "desc": "Flappy Bird 的 MelonJS 开源移植版。" },
+    { "name": "Isocity", "url": "https://github.com/victorqribeiro/isocity", "source": "github", "tags": ["模拟", "等距"], "lang": "JavaScript", "stars": 3262, "desc": "纯 JavaScript 实现的等距视角城市建造游戏。" },
+    { "name": "Canvas Test", "url": "https://github.com/whxaxes/canvas-test", "source": "github", "tags": ["示例", "Canvas"], "lang": "JavaScript", "stars": 1957, "desc": "一组 HTML5 Canvas 小游戏示例合集。" },
+    { "name": "Tower Game", "url": "https://github.com/iamkun/tower_game", "source": "github", "tags": ["街机", "堆叠"], "lang": "JavaScript", "stars": 1612, "desc": "HTML5 Canvas 堆叠盖楼小游戏。" },
+    { "name": "Warzone 2100", "url": "https://github.com/Warzone2100/warzone2100", "source": "github", "tags": ["RTS", "3D"], "lang": "C++", "stars": 3991, "desc": "免费开源 3D 即时战略，支持战役与多人。" },
+    { "name": "Ancient Beast", "url": "https://github.com/FreezingMoon/AncientBeast", "source": "github", "tags": ["策略", "回合制"], "lang": "JavaScript", "stars": 1882, "desc": "开源回合制战术对战游戏，可在浏览器直接运行。" },
+    { "name": "WebGAL", "url": "https://github.com/OpenWebGAL/WebGAL", "source": "github", "tags": ["视觉小说", "引擎"], "lang": "TypeScript", "stars": 3997, "desc": "新一代网页视觉小说引擎。" },
+
+    { "name": "Sky Shader", "url": "https://github.com/Tw1ddle/Sky-Shader", "source": "ludumdare", "tags": ["WebGL", "着色器"], "lang": "JavaScript", "stars": 154, "desc": "Ludum Dare 作品：WebGL 天空与太阳着色器编辑器。" },
+    { "name": "Friendly Fire", "url": "https://github.com/friendlyfiregame/friendlyfiregame", "source": "ludumdare", "tags": ["RPG"], "lang": "TypeScript", "stars": 90, "desc": "Ludum Dare 作品：探索世界、结识住民并拯救世界的角色扮演游戏。" },
+    { "name": "Fort Loop", "url": "https://github.com/deepnight/ld47-fortLoop", "source": "ludumdare", "tags": ["解谜"], "lang": "Haxe", "stars": 35, "desc": "Ludum Dare 47 作品：48 小时完成的循环解谜游戏。" },
+    { "name": "Holding Out", "url": "https://github.com/jeremycryan/Holding-Out", "source": "ludumdare", "tags": ["生存", "模拟"], "lang": "Python", "stars": 33, "desc": "Ludum Dare 53 作品：同时应对客服工单与僵尸的生存模拟。" },
+    { "name": "Dragon Taxes", "url": "https://github.com/walsh9/dragon-taxes", "source": "ludumdare", "tags": ["模拟", "像素"], "lang": "JavaScript", "stars": 33, "desc": "Ludum Dare 33 作品：龙族税务申报模拟器。" },
+    { "name": "Pack", "url": "https://github.com/jeremycryan/Pack", "source": "ludumdare", "tags": ["解谜", "休闲"], "lang": "Python", "stars": 21, "desc": "Ludum Dare 57 作品：整理行李箱的治愈系益智游戏。" },
+    { "name": "Fallowtide", "url": "https://github.com/jeremycryan/Fallowtide", "source": "ludumdare", "tags": ["卡牌", "农场"], "lang": "Python", "stars": 17, "desc": "Ludum Dare 52 作品：48 小时完成的怪诞农场卡牌构筑游戏。" },
+    { "name": "Defold LD48", "url": "https://github.com/aglitchman/defold-ld48-game", "source": "ludumdare", "tags": ["3D", "射击"], "lang": "Lua", "stars": 21, "desc": "Ludum Dare 48 作品：用 Defold 制作的 3D 射击游戏。" },
+    { "name": "Knight General", "url": "https://github.com/lchsk/knight-general", "source": "ludumdare", "tags": ["策略", "回合制"], "lang": "C++", "stars": 17, "desc": "Ludum Dare 42 作品：72 小时完成的回合制策略。" },
+    { "name": "STEREOtype", "url": "https://github.com/thquinn/STEREOtype", "source": "ludumdare", "tags": ["节奏", "打字"], "lang": "JavaScript", "stars": 13, "desc": "Ludum Dare 41 作品：节奏与打字结合的网页游戏。" },
+    { "name": "LD35 Shapeshift", "url": "https://github.com/endel/LD35", "source": "ludumdare", "tags": ["多人", "变形"], "lang": "JavaScript", "stars": 12, "desc": "Ludum Dare 35 作品：主题 Shapeshift 的多人网页游戏。" },
+
+    { "name": "Snake（贪吃蛇）", "url": "https://simplegametutorials.github.io/love/snake/", "source": "sgt", "tags": ["教程", "街机"], "lang": "Lua / Python", "stars": null, "desc": "Simple Game Tutorials：贪吃蛇完整教程，含 LÖVE 与 Pygame Zero 双版本。" },
+    { "name": "Bird（飞鸟）", "url": "https://simplegametutorials.github.io/love/bird/", "source": "sgt", "tags": ["教程", "街机"], "lang": "Lua / Python", "stars": null, "desc": "Simple Game Tutorials：穿越管道的飞鸟游戏教程。" },
+    { "name": "Blocks（俄罗斯方块）", "url": "https://simplegametutorials.github.io/love/blocks/", "source": "sgt", "tags": ["教程", "街机"], "lang": "Lua / Python", "stars": null, "desc": "Simple Game Tutorials：方块下落与消行教程。" },
+    { "name": "Asteroids（小行星）", "url": "https://simplegametutorials.github.io/love/asteroids/", "source": "sgt", "tags": ["教程", "射击"], "lang": "Lua / Python", "stars": null, "desc": "Simple Game Tutorials：经典小行星射击与物理运动教程。" },
+    { "name": "Sokoban（推箱子）", "url": "https://simplegametutorials.github.io/love/sokoban/", "source": "sgt", "tags": ["教程", "解谜"], "lang": "Lua / Python", "stars": null, "desc": "Simple Game Tutorials：推箱子关卡与撤销逻辑教程。" },
+    { "name": "Blackjack（21 点）", "url": "https://simplegametutorials.github.io/love/blackjack/", "source": "sgt", "tags": ["教程", "牌类"], "lang": "Lua / Python", "stars": null, "desc": "Simple Game Tutorials：21 点牌局与状态机教程。" },
+    { "name": "Fifteen（十五数码）", "url": "https://simplegametutorials.github.io/love/fifteen/", "source": "sgt", "tags": ["教程", "益智"], "lang": "Lua / Python", "stars": null, "desc": "Simple Game Tutorials：滑块拼图与动画过渡教程。" },
+    { "name": "Life（生命游戏）", "url": "https://simplegametutorials.github.io/love/life/", "source": "sgt", "tags": ["教程", "元胞自动机"], "lang": "Lua / Python", "stars": null, "desc": "Simple Game Tutorials：康威生命游戏模拟教程。" },
+    { "name": "Flowers（种花）", "url": "https://simplegametutorials.github.io/love/flowers/", "source": "sgt", "tags": ["教程", "休闲"], "lang": "Lua / Python", "stars": null, "desc": "Simple Game Tutorials：网格种植与生长机制教程。" },
+    { "name": "Eyes（眼睛）", "url": "https://simplegametutorials.github.io/love/eyes/", "source": "sgt", "tags": ["教程", "鼠标"], "lang": "Lua / Python", "stars": null, "desc": "Simple Game Tutorials：鼠标跟随与绘制基础教程。" },
+    { "name": "Repeat（记忆复述）", "url": "https://simplegametutorials.github.io/love/repeat/", "source": "sgt", "tags": ["教程", "记忆"], "lang": "Lua / Python", "stars": null, "desc": "Simple Game Tutorials：序列记忆与回合判定教程。" }
+  ]
+}

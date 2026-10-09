@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="{{SITE_LANG}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>{{GAME_NAME}}{{GAME_TITLE_EN}} — 在线免费玩 · {{SITE_SHORT_NAME}}</title>
+<meta name="description" content="{{GAME_META}}">
+<meta name="keywords" content="{{GAME_KEYWORDS}}">
+<meta name="author" content="{{SITE_AUTHOR}}">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="{{THEME_COLOR}}">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="{{SITE_URL}}/games/{{GAME_SLUG}}/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{SITE_NAME}}">
+<meta property="og:locale" content="{{SITE_LOCALE}}">
+<meta property="og:title" content="{{GAME_NAME}}{{GAME_TITLE_EN}} — 在线免费玩">
+<meta property="og:description" content="{{GAME_META}}">
+<meta property="og:url" content="{{SITE_URL}}/games/{{GAME_SLUG}}/">
+<meta property="og:image" content="{{SITE_URL}}/assets/img/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{GAME_NAME}}（{{GAME_EN}}）游戏画面">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{GAME_NAME}}{{GAME_TITLE_EN}} — 在线免费玩">
+<meta name="twitter:description" content="{{GAME_META}}">
+<meta name="twitter:image" content="{{SITE_URL}}/assets/img/og-cover.png">
+
+<link rel="manifest" href="../../manifest.webmanifest">
+<link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/img/icon-180.png">
+<link rel="stylesheet" href="../../assets/css/site.css">
+
+{{GAME_JSONLD}}
+</head>
+
+<body>
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="../../" aria-label="{{SITE_NAME}} 首页">
+      <span class="brand-mark" aria-hidden="true">LA</span>
+      <span class="brand-text">{{SITE_SHORT_NAME}}</span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="../../">首页</a>
+      <a href="../" aria-current="page">全部游戏</a>
+      <a href="../../#catalog">开源目录</a>
+      <a href="../../about/">关于与 GEO</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="section wrap" aria-labelledby="game-title" style="padding-top:32px">
+
+    <nav class="source-line" aria-label="面包屑">
+      <a href="../../">首页</a> › <a href="../">全部游戏</a> › <span>{{GAME_NAME}}</span>
+    </nav>
+
+    <div class="game-layout">
+      <!-- ---------------- 游戏区 ---------------- -->
+      <div data-game>
+        <div class="stage">
+          <div class="stage-head">
+            <span aria-hidden="true" style="font-size:1.6rem">{{GAME_EMOJI}}</span>
+            <h1 id="game-title">{{GAME_NAME}}<span style="color:var(--text-mute);font-weight:500;font-size:.7em">{{GAME_TITLE_EN}}</span></h1>
+            <div class="hud">
+              <span class="hud-item">得分 <b data-hud="score">0</b></span>
+              <span class="hud-item">最高 <b data-hud="best">0</b></span>
+              <span class="hud-item">难度 <b>{{GAME_DIFFICULTY}}</b></span>
+              {{#hudExtra}}<span class="hud-item">{{item.label}} <b data-hud="{{item.key}}">0</b></span>
+              {{/hudExtra}}
+            </div>
+          </div>
+
+          <div class="canvas-box">
+            <canvas id="game-canvas" width="{{GAME_WIDTH}}" height="{{GAME_HEIGHT}}"
+                    role="img" aria-label="{{GAME_NAME}} 游戏画面，使用方向键或触屏操作"></canvas>
+            <div class="overlay" data-overlay>
+              <div>
+                <h2 data-overlay-title>准备开始</h2>
+                <p data-overlay-text>按空格键、点击画布或下方按钮开始游戏。</p>
+                <button class="btn btn-primary" type="button" data-action="start">开始游戏</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="controls">
+            <button class="btn btn-primary" type="button" data-action="start">开始游戏</button>
+            <button class="btn btn-ghost" type="button" data-action="toggle">暂停 / 继续</button>
+            <button class="btn btn-ghost" type="button" data-action="restart">重新开始</button>
+          </div>
+        </div>
+
+        <p class="source-line">提示：得分与最高分保存在浏览器 <code>localStorage</code>，不会上传服务器。快捷键：<kbd>空格</kbd> 开始/暂停 · <kbd>R</kbd> 重开 · <kbd>P</kbd> 暂停。</p>
+      </div>
+
+      <!-- ---------------- 侧栏 ---------------- -->
+      <aside>
+        <div class="panel">
+          <h2>玩法说明</h2>
+          <ol>
+            {{#howto}}<li>{{item}}</li>
+            {{/howto}}
+          </ol>
+        </div>
+
+        <div class="panel">
+          <h2>操作方式</h2>
+          <div class="kbd-rows">
+            {{#controls}}<div class="kbd-row"><span>{{item.key}}</span><span>{{item.desc}}</span></div>
+            {{/controls}}
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2>进阶技巧</h2>
+          <ul>
+            {{#tips}}<li>{{item}}</li>
+            {{/tips}}
+          </ul>
+        </div>
+
+        <div class="panel">
+          <h2>技术信息</h2>
+          <div class="kbd-rows">
+            <div class="kbd-row"><span>渲染方式</span><span>HTML5 Canvas 2D</span></div>
+            <div class="kbd-row"><span>画布尺寸</span><span>{{GAME_WIDTH}} × {{GAME_HEIGHT}}</span></div>
+            <div class="kbd-row"><span>依赖</span><span>无第三方库</span></div>
+            <div class="kbd-row"><span>许可</span><span>MIT</span></div>
+            <div class="kbd-row"><span>源码</span><span><a href="../../assets/js/games/{{GAME_SCRIPT}}">{{GAME_SCRIPT}}</a></span></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ---------------- 答案前置（GEO） ---------------- -->
+  <section class="section wrap" id="answer" aria-labelledby="answer-title">
+    <div class="answer-card">
+      <h2 id="answer-title">{{GAME_NAME}}是什么？</h2>
+      <p>{{GAME_SUMMARY}}</p>
+    </div>
+  </section>
+
+  <!-- ---------------- FAQ ---------------- -->
+  <section class="section wrap" id="faq" aria-labelledby="faq-title">
+    <div class="section-head">
+      <span class="eyebrow">常见问题</span>
+      <h2 id="faq-title">关于{{GAME_NAME}}</h2>
+    </div>
+    <div class="faq">
+      {{#faq}}<details>
+        <summary>{{item.q}}</summary>
+        <p class="faq-a">{{item.a}}</p>
+      </details>
+      {{/faq}}
+    </div>
+  </section>
+
+  <!-- ---------------- 相关游戏 ---------------- -->
+  <section class="section wrap" id="related" aria-labelledby="related-title">
+    <div class="section-head">
+      <span class="eyebrow">继续玩</span>
+      <h2 id="related-title">相关游戏</h2>
+    </div>
+    <div class="grid grid-3">
+      {{#related}}<article class="card">
+        <div class="card-thumb" aria-hidden="true">{{item.emoji}}</div>
+        <div class="card-body">
+          <h3><a href="../{{item.slug}}/">{{item.name}}{{item.titleEn}}</a></h3>
+          <p>{{item.genre}} · 同样免安装、可离线游玩。</p>
+        </div>
+      </article>
+      {{/related}}
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>{{SITE_SHORT_NAME}}</h4>
+        <p style="color:var(--text-dim);font-size:.9rem">{{SITE_TAGLINE}}。全部代码以 MIT 许可发布，不含追踪与广告。</p>
+      </div>
+      <div>
+        <h4>游戏</h4>
+        <ul>
+          {{#related}}<li><a href="../{{item.slug}}/">{{item.name}}</a></li>
+          {{/related}}
+        </ul>
+      </div>
+      <div>
+        <h4>机器可读</h4>
+        <ul>
+          <li><a href="../../sitemap.xml">sitemap.xml</a></li>
+          <li><a href="../../robots.txt">robots.txt</a></li>
+          <li><a href="../../llms.txt">llms.txt</a></li>
+          <li><a href="../../llms-full.txt">llms-full.txt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>来源</h4>
+        <ul>
+          <li><a href="https://itch.io/games/tag-open-source" target="_blank" rel="noopener nofollow external">itch.io 开源</a></li>
+          <li><a href="https://github.com/trending" target="_blank" rel="noopener nofollow external">GitHub Trending</a></li>
+          <li><a href="https://simplegametutorials.github.io" target="_blank" rel="noopener nofollow external">Simple Game Tutorials</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span class="year">{{YEAR}}</span> {{SITE_AUTHOR}} · MIT 许可</span>
+      <span>最后构建：<time datetime="{{BUILD_DATE}}">{{BUILD_DATE_ISO}}</time></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/game-core.js" defer></script>
+<script src="../../assets/js/games/{{GAME_SCRIPT}}" defer></script>
+</body>
+</html>

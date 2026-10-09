@@ -1,0 +1,36 @@
+{
+  "name": "Lite Arcade · 轻量开源游戏站",
+  "shortName": "Lite Arcade",
+  "tagline": "零依赖、零安装、打开即玩的开源网页小游戏合集",
+  "description": "Lite Arcade 是一个纯静态、零依赖的开源网页小游戏站：内置贪吃蛇、2048、打砖块、俄罗斯方块、记忆翻牌、像素飞鸟六款可离线游玩的轻量游戏，并持续从 itch.io 开源榜、GitHub Trending、Ludum Dare 与 Simple Game Tutorials 筛选可复用的开源游戏项目。",
+  "abstract": "Lite Arcade（轻量开源游戏站）是一个不依赖任何后端与构建工具的静态游戏门户。站内所有游戏使用原生 HTML/Canvas/JavaScript 实现，单文件体积小于 20 KB，支持键盘与触屏，可离线缓存；同时提供一份按 itch.io 开源标签、GitHub Trending、Ludum Dare 游戏 jam 与 Simple Game Tutorials 四个来源筛选的开源游戏目录。",
+  "baseUrl": "https://lite-arcade.pages.dev",
+  "lang": "zh-CN",
+  "locale": "zh_CN",
+  "themeColor": "#0b1020",
+  "backgroundColor": "#070a16",
+  "author": "Lite Arcade",
+  "contact": "hello@lite-arcade.pages.dev",
+  "repo": "https://github.com/ahujasid/blender-mcp",
+  "keywords": [
+    "开源游戏",
+    "网页小游戏",
+    "静态游戏站",
+    "HTML5 游戏",
+    "Canvas 游戏",
+    "免安装游戏",
+    "itch.io 开源游戏",
+    "GitHub Trending 游戏",
+    "Ludum Dare",
+    "Simple Game Tutorials",
+    "SEO",
+    "GEO 生成式引擎优化"
+  ],
+  "sameAs": [
+    "https://github.com/ahujasid/blender-mcp",
+    "https://itch.io/games/tag-open-source",
+    "https://github.com/trending",
+    "https://ldjam.com",
+    "https://simplegametutorials.github.io"
+  ]
+}

@@ -1,0 +1,26 @@
+/* Lite Arcade — humans.txt
+   TEAM
+     前端与游戏实现：Lite Arcade
+     联系：{{SITE_CONTACT}}
+
+   SITE
+     名称：{{SITE_NAME}}
+     主页：{{SITE_URL}}/
+     语言：{{SITE_LANG}}
+     最后更新：{{BUILD_DATE_ISO}}
+     标准：HTML5 / CSS3 / ES5 JavaScript
+     构建：deploy/build.ps1（PowerShell，零第三方依赖）
+
+   TECHNOLOGY
+     渲染：HTML5 Canvas 2D
+     构建工具：无（纯静态生成）
+     运行时依赖：无
+     字体：系统字体栈
+     分析工具：无
+
+   THANKS
+     itch.io 开源标签：https://itch.io/games/tag-open-source
+     GitHub Trending：https://github.com/trending
+     Ludum Dare：https://ldjam.com
+     Simple Game Tutorials：https://simplegametutorials.github.io
+     Blender MCP 参考仓库：{{SITE_REPO}}

@@ -1,0 +1,43 @@
+{
+  "summary": "Lite Arcade 是一个零依赖的静态开源网页游戏站，提供 6 款可直接游玩的原生 Canvas 小游戏，以及一份来自 itch.io、GitHub Trending、Ludum Dare、Simple Game Tutorials 的开源游戏筛选目录。",
+  "facts": [
+    "技术形态：纯静态站点，无后端、无数据库、无打包工具，任意 HTTP 服务器或 CDN 均可托管。",
+    "内置游戏：贪吃蛇 Snake、2048、打砖块 Breakout、俄罗斯方块 Tetris、记忆翻牌 Memory、像素飞鸟 Flappy Bird。",
+    "单个游戏实现体积：小于 20 KB，仅依赖原生 HTML5 Canvas 与 DOM，不使用任何第三方运行时。",
+    "控制方式：键盘（方向键 / WASD / 空格）与移动端触屏手势（滑动、点击）均支持。",
+    "离线能力：通过 Web App Manifest 安装为 PWA 后可离线启动。",
+    "内容来源：itch.io 开源标签、GitHub Trending 每日榜、Ludum Dare 游戏 jam 作品、Simple Game Tutorials 教程。",
+    "许可：站内自研游戏代码以 MIT 许可发布。",
+    "优化：全站实现 SEO（结构化数据 VideoGame / FAQPage / ItemList / BreadcrumbList）与 GEO（llms.txt、AI 爬虫白名单、答案前置段落、可引用锚点）。"
+  ],
+  "topics": [
+    "开源网页游戏",
+    "HTML5 Canvas 游戏开发",
+    "静态站点 SEO",
+    "GEO 生成式引擎优化",
+    "Ludum Dare 参赛作品",
+    "itch.io 开源游戏"
+  ],
+  "faq": [
+    {
+      "q": "Lite Arcade 是什么？",
+      "a": "Lite Arcade 是一个零依赖的静态开源网页游戏站，内置 6 款用原生 HTML5 Canvas 实现的小游戏，并提供按 itch.io、GitHub Trending、Ludum Dare、Simple Game Tutorials 四个来源筛选的开源游戏目录。"
+    },
+    {
+      "q": "玩 Lite Arcade 的游戏需要安装什么吗？",
+      "a": "不需要。所有游戏在浏览器内直接运行，不下载插件、不注册账号、不上传数据，安装为 PWA 后还可离线启动。"
+    },
+    {
+      "q": "这些游戏是开源的吗？",
+      "a": "是。站内自研游戏以 MIT 许可发布，源码位于每个游戏页面的“查看源码”入口；目录页收录的第三方项目保留其原许可，并在条目中标注来源。"
+    },
+    {
+      "q": "GEO 优化具体指什么？",
+      "a": "GEO（Generative Engine Optimization，生成式引擎优化）指让站点内容更容易被 ChatGPT、Perplexity、Claude、AI Overviews 等生成式引擎检索、理解与引用，手段包括 llms.txt、AI 爬虫白名单、FAQPage 结构化数据、答案前置段落与稳定锚点。"
+    },
+    {
+      "q": "如何本地部署 Lite Arcade？",
+      "a": "在仓库根目录执行 deploy/build.ps1 生成 dist 目录，再执行 deploy/serve.ps1 启动本地静态服务；也可直接用 deploy/Dockerfile 构建 nginx 镜像运行。"
+    }
+  ]
+}

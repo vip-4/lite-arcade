@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="{{SITE_LANG}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>{{SITE_NAME}} — 零依赖开源网页小游戏合集</title>
+<meta name="description" content="{{SITE_DESCRIPTION}}">
+<meta name="keywords" content="{{KEYWORDS}}">
+<meta name="author" content="{{SITE_AUTHOR}}">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="bingbot" content="index, follow">
+<meta name="theme-color" content="{{THEME_COLOR}}">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<meta name="application-name" content="{{SITE_SHORT_NAME}}">
+<meta name="rating" content="general">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="canonical" href="{{SITE_URL}}/">
+<link rel="alternate" type="text/plain" href="{{SITE_URL}}/llms.txt" title="llms.txt · AI 摘要入口">
+<link rel="alternate" type="text/plain" href="{{SITE_URL}}/llms-full.txt" title="llms-full.txt · 完整上下文">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{SITE_NAME}}">
+<meta property="og:locale" content="{{SITE_LOCALE}}">
+<meta property="og:title" content="{{SITE_NAME}} — 零依赖开源网页小游戏合集">
+<meta property="og:description" content="{{SITE_DESCRIPTION}}">
+<meta property="og:url" content="{{SITE_URL}}/">
+<meta property="og:image" content="{{SITE_URL}}/assets/img/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{SITE_NAME}} 首页：六款可直接在浏览器游玩的开源小游戏">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@litearcade">
+<meta name="twitter:creator" content="@litearcade">
+<meta name="twitter:title" content="{{SITE_NAME}} — 零依赖开源网页小游戏合集">
+<meta name="twitter:description" content="{{SITE_DESCRIPTION}}">
+<meta name="twitter:image" content="{{SITE_URL}}/assets/img/og-cover.png">
+<meta name="twitter:image:alt" content="{{SITE_NAME}} 首页：六款可直接在浏览器游玩的开源小游戏">
+<meta name="twitter:label1" content="内置游戏">
+<meta name="twitter:data1" content="6 款">
+<meta name="twitter:label2" content="许可">
+<meta name="twitter:data2" content="MIT">
+
+<!-- PWA -->
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/icon-180.png">
+
+<link rel="stylesheet" href="assets/css/site.css">
+
+<!-- ============================ 结构化数据 ============================ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "{{SITE_URL}}/#website",
+      "url": "{{SITE_URL}}/",
+      "name": "{{SITE_NAME}}",
+      "alternateName": "{{SITE_SHORT_NAME}}",
+      "description": "{{SITE_DESCRIPTION}}",
+      "inLanguage": "{{SITE_LANG}}",
+      "dateModified": "{{BUILD_DATE}}",
+      "publisher": { "@id": "{{SITE_URL}}/#organization" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "{{SITE_URL}}/?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "{{SITE_URL}}/#organization",
+      "name": "{{SITE_NAME}}",
+      "url": "{{SITE_URL}}/",
+      "email": "{{SITE_CONTACT}}",
+      "sameAs": ["{{SITE_REPO}}"],
+      "description": "维护零依赖静态开源游戏站与开源游戏筛选目录的独立项目。"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "{{SITE_URL}}/#webpage",
+      "url": "{{SITE_URL}}/",
+      "name": "{{SITE_NAME}} — 零依赖开源网页小游戏合集",
+      "isPartOf": { "@id": "{{SITE_URL}}/#website" },
+      "about": { "@id": "{{SITE_URL}}/#organization" },
+      "inLanguage": "{{SITE_LANG}}",
+      "datePublished": "{{BUILD_DATE}}",
+      "dateModified": "{{BUILD_DATE}}",
+      "primaryImageOfPage": { "@type": "ImageObject", "url": "{{SITE_URL}}/assets/img/og-cover.png", "width": 1200, "height": 630 },
+      "breadcrumb": { "@id": "{{SITE_URL}}/#breadcrumb" },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["#answer", "#faq"]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "{{SITE_URL}}/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "{{SITE_URL}}/" },
+        { "@type": "ListItem", "position": 2, "name": "全部游戏", "item": "{{SITE_URL}}/games/" }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "{{SITE_URL}}/#game-list",
+      "name": "Lite Arcade 内置可游玩游戏",
+      "numberOfItems": 6,
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "url": "{{SITE_URL}}/games/snake/", "name": "贪吃蛇 Snake" },
+        { "@type": "ListItem", "position": 2, "url": "{{SITE_URL}}/games/2048/", "name": "2048" },
+        { "@type": "ListItem", "position": 3, "url": "{{SITE_URL}}/games/breakout/", "name": "打砖块 Breakout" },
+        { "@type": "ListItem", "position": 4, "url": "{{SITE_URL}}/games/tetris/", "name": "俄罗斯方块 Tetris" },
+        { "@type": "ListItem", "position": 5, "url": "{{SITE_URL}}/games/memory/", "name": "记忆翻牌 Memory" },
+        { "@type": "ListItem", "position": 6, "url": "{{SITE_URL}}/games/bird/", "name": "像素飞鸟 Flappy" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "{{SITE_URL}}/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Lite Arcade 是什么？",
+          "acceptedAnswer": { "@type": "Answer", "text": "Lite Arcade 是一个零依赖的静态开源网页游戏站，内置 6 款用原生 HTML5 Canvas 实现的小游戏（贪吃蛇、2048、打砖块、俄罗斯方块、记忆翻牌、像素飞鸟），并提供按 itch.io 开源榜、GitHub Trending、Ludum Dare 与 Simple Game Tutorials 四个来源筛选的开源游戏目录。" }
+        },
+        {
+          "@type": "Question",
+          "name": "玩 Lite Arcade 的游戏需要安装什么吗？",
+          "acceptedAnswer": { "@type": "Answer", "text": "不需要。所有游戏在浏览器内直接运行，不下载插件、不注册账号、不上传数据；安装为 PWA 后还可离线启动。" }
+        },
+        {
+          "@type": "Question",
+          "name": "这些游戏是开源的吗？",
+          "acceptedAnswer": { "@type": "Answer", "text": "是。站内自研游戏以 MIT 许可发布，源码位于每个游戏页面的“查看源码”入口；目录页收录的第三方项目保留其原许可，并在条目中标注来源。" }
+        },
+        {
+          "@type": "Question",
+          "name": "GEO 优化指什么？",
+          "acceptedAnswer": { "@type": "Answer", "text": "GEO（Generative Engine Optimization，生成式引擎优化）指让站点内容更容易被 ChatGPT、Perplexity、Claude、Google AI Overviews 等生成式引擎检索、理解与引用。Lite Arcade 采用的手段包括 llms.txt、AI 爬虫白名单、FAQPage 结构化数据、答案前置段落与稳定的章节锚点。" }
+        },
+        {
+          "@type": "Question",
+          "name": "如何本地部署 Lite Arcade？",
+          "acceptedAnswer": { "@type": "Answer", "text": "在仓库根目录执行 deploy/build.ps1 生成 dist 目录，再执行 deploy/serve.ps1 启动本地静态服务；也可使用 deploy/Dockerfile 构建 nginx 镜像运行，或直接把 dist 上传到任意静态托管。" }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="./" aria-label="{{SITE_NAME}} 首页">
+      <span class="brand-mark" aria-hidden="true">LA</span>
+      <span class="brand-text">{{SITE_SHORT_NAME}}</span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="./" aria-current="page">首页</a>
+      <a href="./games/">全部游戏</a>
+      <a href="./#catalog">开源目录</a>
+      <a href="./about/">关于与 GEO</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============================ Hero ============================ -->
+  <section class="hero wrap" aria-labelledby="hero-title">
+    <div class="hero-grid">
+      <div>
+        <div class="badge-row">
+          <span class="badge badge-brand">零依赖</span>
+          <span class="badge">纯静态</span>
+          <span class="badge">MIT 许可</span>
+          <span class="badge">支持离线</span>
+        </div>
+        <h1 id="hero-title">{{SITE_NAME}}</h1>
+        <p class="lede">{{SITE_TAGLINE}}。六款游戏全部由原生 HTML5 Canvas 与 JavaScript 实现，单文件小于 20 KB，无追踪、无广告、无后端，打开网页即可游玩；同时提供一份持续更新的开源游戏筛选目录。</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="./games/">▶ 开始玩游戏</a>
+          <a class="btn btn-ghost" href="./#catalog">浏览开源目录</a>
+          <a class="btn btn-ghost" href="./llms.txt">llms.txt</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><b>6</b><span>内置可玩游戏</span></div>
+          <div class="stat"><b>&lt;20KB</b><span>单游戏体积</span></div>
+          <div class="stat"><b>4</b><span>内容采集来源</span></div>
+          <div class="stat"><b>0</b><span>第三方运行时</span></div>
+        </div>
+      </div>
+
+      <!-- 答案前置卡片：GEO 核心，放在首屏便于生成式引擎直接摘取 -->
+      <aside class="answer-card" id="answer">
+        <h2>一句话摘要</h2>
+        <p>Lite Arcade 是一个零依赖的静态开源网页游戏站：内置贪吃蛇、2048、打砖块、俄罗斯方块、记忆翻牌、像素飞鸟六款原生 Canvas 小游戏，全部免安装、可离线、以 MIT 许可发布，并附一份从 itch.io 开源榜、GitHub Trending、Ludum Dare 与 Simple Game Tutorials 筛选的开源游戏目录。</p>
+
+        <dl class="fact-dl">
+          <dt>技术形态</dt>
+          <dd>纯静态站点，无后端、无数据库、无打包工具</dd>
+          <dt>内置游戏</dt>
+          <dd>6 款，单个体积小于 20 KB，仅依赖 HTML5 Canvas 与 DOM</dd>
+          <dt>控制方式</dt>
+          <dd>键盘（方向键 / WASD / 空格）与移动端触屏手势</dd>
+          <dt>许可</dt>
+          <dd>站内自研代码 MIT；第三方目录条目保留原许可</dd>
+          <dt>本页更新</dt>
+          <dd><time datetime="{{BUILD_DATE}}">{{BUILD_DATE_ISO}}</time></dd>
+        </dl>
+
+        <h3 style="font-size:.95rem;margin-top:18px;color:var(--text)">主要特点</h3>
+        <ul class="fact-list">
+          <li>无需注册、无广告、无数据上报</li>
+          <li>键盘与移动端触屏手势均支持</li>
+          <li>可安装为 PWA 离线启动</li>
+          <li>全站实现 SEO 与 GEO 优化</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============================ 内置游戏 ============================ -->
+  <section class="section wrap" id="games" aria-labelledby="games-title">
+    <div class="section-head">
+      <span class="eyebrow">立即游玩</span>
+      <h2 id="games-title">站内六款轻量游戏</h2>
+      <p>每款游戏都是独立的静态页面，支持键盘与触屏，进度与最高分保存在浏览器本地（localStorage）。</p>
+    </div>
+
+    <div class="grid grid-3">
+      <article class="card">
+        <div class="card-thumb" aria-hidden="true">🐍</div>
+        <div class="card-body">
+          <h3><a href="./games/snake/">贪吃蛇 <span lang="en">Snake</span></a></h3>
+          <p>经典网格贪吃蛇：吃到食物变长，撞墙或撞到自己即结束。方向键或滑动屏幕控制。</p>
+          <div class="card-meta">
+            <span class="tag tag-src">街机</span><span class="tag">键盘</span><span class="tag">触屏</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-thumb" aria-hidden="true">🔢</div>
+        <div class="card-body">
+          <h3><a href="./games/2048/">2048</a></h3>
+          <p>合并相同数字方块，目标拼出 2048。每步都会随机生成一个新方块，棋盘填满且无法合并时结束。</p>
+          <div class="card-meta">
+            <span class="tag tag-src">益智</span><span class="tag">键盘</span><span class="tag">触屏</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-thumb" aria-hidden="true">🧱</div>
+        <div class="card-body">
+          <h3><a href="./games/breakout/">打砖块 <span lang="en">Breakout</span></a></h3>
+          <p>控制挡板反弹小球，击碎全部砖块。球速随回合递增，漏球三次即结束。</p>
+          <div class="card-meta">
+            <span class="tag tag-src">街机</span><span class="tag">鼠标</span><span class="tag">键盘</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-thumb" aria-hidden="true">🟦</div>
+        <div class="card-body">
+          <h3><a href="./games/tetris/">俄罗斯方块 <span lang="en">Tetris</span></a></h3>
+          <p>七种方块下落堆叠，填满一行即消除并计分。支持左右移动、旋转与软降。</p>
+          <div class="card-meta">
+            <span class="tag tag-src">街机</span><span class="tag">键盘</span><span class="tag">触屏</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-thumb" aria-hidden="true">🃏</div>
+        <div class="card-body">
+          <h3><a href="./games/memory/">记忆翻牌 <span lang="en">Memory</span></a></h3>
+          <p>翻开卡片配对相同图案，以最少步数清空全部牌面。记录步数与最短用时。</p>
+          <div class="card-meta">
+            <span class="tag tag-src">益智</span><span class="tag">鼠标</span><span class="tag">触屏</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-thumb" aria-hidden="true">🐤</div>
+        <div class="card-body">
+          <h3><a href="./games/bird/">像素飞鸟 <span lang="en">Flappy</span></a></h3>
+          <p>点击或按空格让小鸟上升，穿越管道间隙；碰到管道或落地即结束。</p>
+          <div class="card-meta">
+            <span class="tag tag-src">街机</span><span class="tag">点击</span><span class="tag">触屏</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================ GitHub Trending ============================ -->
+  <section class="section wrap" id="trending" aria-labelledby="trending-title">
+    <div class="section-head">
+      <span class="eyebrow">每日更新</span>
+      <h2 id="trending-title">GitHub Trending · 游戏相关仓库</h2>
+      <p>页面加载时实时请求 GitHub Search API（topic:game，近 90 天有提交，按 star 排序）；接口不可用时自动回退到内置快照。</p>
+    </div>
+    <div class="grid grid-3" id="trending-list"></div>
+    <p class="source-line" id="trending-note" role="status" aria-live="polite"></p>
+  </section>
+
+  <!-- ============================ 开源游戏目录 ============================ -->
+  <section class="section wrap" id="catalog" aria-labelledby="catalog-title">
+    <div class="section-head">
+      <span class="eyebrow">筛选目录</span>
+      <h2 id="catalog-title">开源游戏筛选目录</h2>
+      <p>从四个公开来源采集并人工筛选：itch.io 开源标签、GitHub Trending、Ludum Dare 游戏 jam 作品、Simple Game Tutorials。可按来源筛选与关键词搜索。</p>
+    </div>
+
+    <div class="toolbar">
+      <button class="chip" type="button" data-filter-source="all" aria-pressed="true">全部</button>
+      <button class="chip" type="button" data-filter-source="itchio" aria-pressed="false">itch.io</button>
+      <button class="chip" type="button" data-filter-source="github" aria-pressed="false">GitHub</button>
+      <button class="chip" type="button" data-filter-source="ludumdare" aria-pressed="false">Ludum Dare</button>
+      <button class="chip" type="button" data-filter-source="sgt" aria-pressed="false">Simple Game Tutorials</button>
+      <label for="catalog-search" class="chip" style="cursor:default">搜索</label>
+      <input class="search" id="catalog-search" type="search" placeholder="按名称、语言或标签搜索，例如：像素、Python、WebGL" autocomplete="off">
+    </div>
+
+    <p class="source-line" id="catalog-count" role="status" aria-live="polite">正在加载目录数据…</p>
+    <div class="grid grid-3" id="catalog-grid"></div>
+
+    <h3 style="margin-top:34px">采集来源与方法</h3>
+    <div class="table-scroll">
+      <table>
+        <caption class="source-line" style="caption-side:bottom;text-align:left;padding:10px 14px">数据快照时间：{{BUILD_DATE_ISO}}；第三方项目保留各自原许可，条目仅作索引。</caption>
+        <thead>
+          <tr><th scope="col">来源</th><th scope="col">入口</th><th scope="col">采集方式</th><th scope="col">筛选标准</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">itch.io 开源榜</th>
+            <td><a href="https://itch.io/games/tag-open-source" target="_blank" rel="noopener nofollow external">itch.io/games/tag-open-source</a></td>
+            <td>抓取列表页链接</td>
+            <td>可核实的知名开源作品，含模拟器、RTS、竞速</td>
+          </tr>
+          <tr>
+            <th scope="row">GitHub Trending</th>
+            <td><a href="https://github.com/trending" target="_blank" rel="noopener nofollow external">github.com/trending</a></td>
+            <td>趋势页 + Search API</td>
+            <td>topic:game 且近期有提交，按 star 排序</td>
+          </tr>
+          <tr>
+            <th scope="row">Ludum Dare</th>
+            <td><a href="https://github.com/orgs/LudumDare/repositories" target="_blank" rel="noopener nofollow external">LudumDare 仓库</a></td>
+            <td>Search API topic:ludum-dare</td>
+            <td>源码完整、可独立运行的 jam 作品</td>
+          </tr>
+          <tr>
+            <th scope="row">Simple Game Tutorials</th>
+            <td><a href="https://simplegametutorials.github.io" target="_blank" rel="noopener nofollow external">simplegametutorials.github.io</a></td>
+            <td>读取仓库目录树</td>
+            <td>代码极简、适合移植到 Web 的经典玩法</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============================ FAQ ============================ -->
+  <section class="section wrap" id="faq" aria-labelledby="faq-title">
+    <div class="section-head">
+      <span class="eyebrow">常见问题</span>
+      <h2 id="faq-title">关于 Lite Arcade</h2>
+      <p>以下问答与页面内的 FAQPage 结构化数据保持一致，便于生成式引擎直接引用。</p>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>Lite Arcade 是什么？</summary>
+        <p class="faq-a">Lite Arcade 是一个零依赖的静态开源网页游戏站，内置 6 款用原生 HTML5 Canvas 实现的小游戏（贪吃蛇、2048、打砖块、俄罗斯方块、记忆翻牌、像素飞鸟），并提供按 itch.io 开源榜、GitHub Trending、Ludum Dare 与 Simple Game Tutorials 四个来源筛选的开源游戏目录。</p>
+      </details>
+      <details>
+        <summary>玩 Lite Arcade 的游戏需要安装什么吗？</summary>
+        <p class="faq-a">不需要。所有游戏在浏览器内直接运行，不下载插件、不注册账号、不上传数据；安装为 PWA 后还可离线启动。</p>
+      </details>
+      <details>
+        <summary>这些游戏是开源的吗？</summary>
+        <p class="faq-a">是。站内自研游戏以 MIT 许可发布，源码位于每个游戏页面的“查看源码”入口；目录页收录的第三方项目保留其原许可，并在条目中标注来源。</p>
+      </details>
+      <details>
+        <summary>GEO 优化指什么？</summary>
+        <p class="faq-a">GEO（Generative Engine Optimization，生成式引擎优化）指让站点内容更容易被 ChatGPT、Perplexity、Claude、Google AI Overviews 等生成式引擎检索、理解与引用。Lite Arcade 采用的手段包括 llms.txt、AI 爬虫白名单、FAQPage 结构化数据、答案前置段落与稳定的章节锚点。</p>
+      </details>
+      <details>
+        <summary>如何本地部署 Lite Arcade？</summary>
+        <p class="faq-a">在仓库根目录执行 <code>deploy/build.ps1</code> 生成 <code>dist</code> 目录，再执行 <code>deploy/serve.ps1</code> 启动本地静态服务；也可使用 <code>deploy/Dockerfile</code> 构建 nginx 镜像运行，或直接把 <code>dist</code> 上传到任意静态托管。</p>
+      </details>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>{{SITE_SHORT_NAME}}</h4>
+        <p style="color:var(--text-dim);font-size:.9rem">{{SITE_TAGLINE}}。全部代码以 MIT 许可发布，不含追踪与广告。</p>
+      </div>
+      <div>
+        <h4>游戏</h4>
+        <ul>
+          <li><a href="./games/snake/">贪吃蛇</a></li>
+          <li><a href="./games/2048/">2048</a></li>
+          <li><a href="./games/breakout/">打砖块</a></li>
+          <li><a href="./games/tetris/">俄罗斯方块</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>目录与来源</h4>
+        <ul>
+          <li><a href="./#catalog">开源游戏目录</a></li>
+          <li><a href="https://itch.io/games/tag-open-source" target="_blank" rel="noopener nofollow external">itch.io 开源</a></li>
+          <li><a href="https://github.com/trending" target="_blank" rel="noopener nofollow external">GitHub Trending</a></li>
+          <li><a href="https://ldjam.com" target="_blank" rel="noopener nofollow external">Ludum Dare</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>机器可读</h4>
+        <ul>
+          <li><a href="./sitemap.xml">sitemap.xml</a></li>
+          <li><a href="./robots.txt">robots.txt</a></li>
+          <li><a href="./llms.txt">llms.txt</a></li>
+          <li><a href="./llms-full.txt">llms-full.txt</a></li>
+          <li><a href="./about/">关于与 GEO</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> {{SITE_AUTHOR}} · MIT 许可</span>
+      <span>最后构建：<time datetime="{{BUILD_DATE}}">{{BUILD_DATE_ISO}}</time></span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="{{SITE_LANG}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>全部游戏 — {{SITE_SHORT_NAME}} 轻量开源游戏合集</title>
+<meta name="description" content="{{SITE_SHORT_NAME}} 全部游戏列表：贪吃蛇、2048、打砖块、俄罗斯方块、记忆翻牌、像素飞鸟。全部由原生 HTML5 Canvas 实现，免安装、可离线、MIT 许可开源。">
+<meta name="keywords" content="在线小游戏,HTML5 游戏,Canvas 游戏,开源游戏,免安装游戏,{{KEYWORDS}}">
+<meta name="author" content="{{SITE_AUTHOR}}">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="{{THEME_COLOR}}">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="{{SITE_URL}}/games/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{SITE_NAME}}">
+<meta property="og:locale" content="{{SITE_LOCALE}}">
+<meta property="og:title" content="全部游戏 — {{SITE_SHORT_NAME}} 轻量开源游戏合集">
+<meta property="og:description" content="贪吃蛇、2048、打砖块、俄罗斯方块、记忆翻牌、像素飞鸟，六款免安装开源网页小游戏。">
+<meta property="og:url" content="{{SITE_URL}}/games/">
+<meta property="og:image" content="{{SITE_URL}}/assets/img/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{SITE_SHORT_NAME}} 全部游戏列表">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="全部游戏 — {{SITE_SHORT_NAME}}">
+<meta name="twitter:description" content="六款免安装、可离线的开源网页小游戏，原生 Canvas 实现。">
+<meta name="twitter:image" content="{{SITE_URL}}/assets/img/og-cover.png">
+
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/img/icon-180.png">
+<link rel="stylesheet" href="../assets/css/site.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "{{SITE_URL}}/games/#webpage",
+      "url": "{{SITE_URL}}/games/",
+      "name": "全部游戏",
+      "description": "{{SITE_SHORT_NAME}} 内置的全部可游玩网页小游戏。",
+      "inLanguage": "{{SITE_LANG}}",
+      "isPartOf": { "@id": "{{SITE_URL}}/#website" },
+      "dateModified": "{{BUILD_DATE}}",
+      "breadcrumb": { "@id": "{{SITE_URL}}/games/#breadcrumb" },
+      "mainEntity": { "@id": "{{SITE_URL}}/#game-list" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "{{SITE_URL}}/games/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "{{SITE_URL}}/" },
+        { "@type": "ListItem", "position": 2, "name": "全部游戏", "item": "{{SITE_URL}}/games/" }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "{{SITE_URL}}/games/#game-list",
+      "name": "{{SITE_SHORT_NAME}} 游戏列表",
+      "numberOfItems": 6,
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "url": "{{SITE_URL}}/games/snake/", "name": "贪吃蛇 Snake" },
+        { "@type": "ListItem", "position": 2, "url": "{{SITE_URL}}/games/2048/", "name": "2048" },
+        { "@type": "ListItem", "position": 3, "url": "{{SITE_URL}}/games/breakout/", "name": "打砖块 Breakout" },
+        { "@type": "ListItem", "position": 4, "url": "{{SITE_URL}}/games/tetris/", "name": "俄罗斯方块 Tetris" },
+        { "@type": "ListItem", "position": 5, "url": "{{SITE_URL}}/games/memory/", "name": "记忆翻牌 Memory" },
+        { "@type": "ListItem", "position": 6, "url": "{{SITE_URL}}/games/bird/", "name": "像素飞鸟 Flappy" }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="../" aria-label="{{SITE_NAME}} 首页">
+      <span class="brand-mark" aria-hidden="true">LA</span>
+      <span class="brand-text">{{SITE_SHORT_NAME}}</span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="../">首页</a>
+      <a href="./" aria-current="page">全部游戏</a>
+      <a href="../#catalog">开源目录</a>
+      <a href="../about/">关于与 GEO</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="section wrap" aria-labelledby="all-title" style="padding-top:44px">
+    <div class="section-head">
+      <span class="eyebrow">游戏列表</span>
+      <h1 id="all-title">全部游戏</h1>
+      <p>共 6 款。每款都是独立的静态页面，由原生 HTML5 Canvas 与 JavaScript 实现，不依赖任何第三方库；支持键盘与移动端触屏，得分与最高分保存在浏览器本地。</p>
+    </div>
+
+    <div class="grid grid-3">
+      <article class="card">
+        <div class="card-thumb" aria-hidden="true">🐍</div>
+        <div class="card-body">
+          <h2><a href="./snake/">贪吃蛇 Snake</a></h2>
+          <p>24×24 网格，吃到食物加 10 分并变长，撞墙或撞到自己结束。</p>
+          <div class="card-meta"><span class="tag tag-src">街机</span><span class="tag">简单</span><span class="tag">键盘 / 触屏</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-thumb" aria-hidden="true">🔢</div>
+        <div class="card-body">
+          <h2><a href="./2048/">2048</a></h2>
+          <p>4×4 棋盘合并相同数字，拼出 2048 后可继续挑战更高分。</p>
+          <div class="card-meta"><span class="tag tag-src">益智</span><span class="tag">中等</span><span class="tag">键盘 / 触屏</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-thumb" aria-hidden="true">🧱</div>
+        <div class="card-body">
+          <h2><a href="./breakout/">打砖块 Breakout</a></h2>
+          <p>8 列 × 5 行砖墙，挡板由鼠标或手指拖动，漏球三次结束。</p>
+          <div class="card-meta"><span class="tag tag-src">街机</span><span class="tag">中等</span><span class="tag">鼠标 / 触屏</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-thumb" aria-hidden="true">🟦</div>
+        <div class="card-body">
+          <h2><a href="./tetris/">俄罗斯方块 Tetris</a></h2>
+          <p>10 列 × 20 行棋盘，七种方块、旋转与落点预览，一次消四行得 800 分。</p>
+          <div class="card-meta"><span class="tag tag-src">街机</span><span class="tag">中等</span><span class="tag">键盘 / 触屏</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-thumb" aria-hidden="true">🃏</div>
+        <div class="card-body">
+          <h2><a href="./memory/">记忆翻牌 Memory</a></h2>
+          <p>4×4 共 8 对图案，记录步数与用时，全部配对完成后结算。</p>
+          <div class="card-meta"><span class="tag tag-src">益智</span><span class="tag">简单</span><span class="tag">鼠标 / 触屏</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-thumb" aria-hidden="true">🐤</div>
+        <div class="card-body">
+          <h2><a href="./bird/">像素飞鸟 Flappy</a></h2>
+          <p>点击或空格拍翅上升，穿越管道间隙，每穿过一根得 1 分。</p>
+          <div class="card-meta"><span class="tag tag-src">街机</span><span class="tag">困难</span><span class="tag">点击 / 触屏</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section wrap" id="tech" aria-labelledby="tech-title">
+    <div class="section-head">
+      <span class="eyebrow">技术说明</span>
+      <h2 id="tech-title">这些游戏是怎么实现的？</h2>
+      <p>所有游戏共用一个不到 300 行的内核 <code>game-core.js</code>，负责画布自适应、固定步长循环、输入与计分；每个游戏只用 80–200 行描述自己的规则与绘制逻辑。</p>
+    </div>
+    <div class="grid grid-2">
+      <div class="panel">
+        <h3>共用内核能力</h3>
+        <ul>
+          <li>DPR 自适应画布，高清屏下不模糊</li>
+          <li>固定步长主循环（贪吃蛇 110ms、俄罗斯方块 480ms）</li>
+          <li>键盘方向键 / WASD / 空格，移动端滑动与点击</li>
+          <li>得分与最高分持久化到 <code>localStorage</code></li>
+          <li>暂停、重开、结束遮罩层统一处理</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>性能与隐私</h3>
+        <ul>
+          <li>单个游戏脚本小于 20 KB，首次加载无阻塞</li>
+          <li>零第三方请求、零追踪、零广告</li>
+          <li>不上传任何游戏数据</li>
+          <li>安装为 PWA 后可离线启动</li>
+          <li>遵循系统 <code>prefers-reduced-motion</code> 设置</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>{{SITE_SHORT_NAME}}</h4>
+        <p style="color:var(--text-dim);font-size:.9rem">{{SITE_TAGLINE}}。全部代码以 MIT 许可发布。</p>
+      </div>
+      <div>
+        <h4>游戏</h4>
+        <ul>
+          <li><a href="./snake/">贪吃蛇</a></li>
+          <li><a href="./2048/">2048</a></li>
+          <li><a href="./breakout/">打砖块</a></li>
+          <li><a href="./tetris/">俄罗斯方块</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>更多</h4>
+        <ul>
+          <li><a href="../#catalog">开源游戏目录</a></li>
+          <li><a href="../about/">关于与 GEO</a></li>
+          <li><a href="../sitemap.xml">sitemap.xml</a></li>
+          <li><a href="../llms.txt">llms.txt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>来源</h4>
+        <ul>
+          <li><a href="https://itch.io/games/tag-open-source" target="_blank" rel="noopener nofollow external">itch.io 开源</a></li>
+          <li><a href="https://github.com/trending" target="_blank" rel="noopener nofollow external">GitHub Trending</a></li>
+          <li><a href="https://ldjam.com" target="_blank" rel="noopener nofollow external">Ludum Dare</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> {{SITE_AUTHOR}} · MIT 许可</span>
+      <span>最后构建：<time datetime="{{BUILD_DATE}}">{{BUILD_DATE_ISO}}</time></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/site.js" defer></script>
+</body>
+</html>

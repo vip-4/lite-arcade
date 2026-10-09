@@ -1,0 +1,27 @@
+{
+  "name": "{{SITE_NAME}}",
+  "short_name": "{{SITE_SHORT_NAME}}",
+  "description": "{{SITE_DESCRIPTION}}",
+  "lang": "{{SITE_LANG}}",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "{{BG_COLOR}}",
+  "theme_color": "{{THEME_COLOR}}",
+  "categories": ["games", "entertainment", "education"],
+  "icons": [
+    { "src": "assets/img/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "assets/img/icon-180.png", "sizes": "180x180", "type": "image/png", "purpose": "any" },
+    { "src": "assets/img/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "shortcuts": [
+    { "name": "贪吃蛇", "url": "games/snake/" },
+    { "name": "2048", "url": "games/2048/" },
+    { "name": "俄罗斯方块", "url": "games/tetris/" },
+    { "name": "打砖块", "url": "games/breakout/" },
+    { "name": "记忆翻牌", "url": "games/memory/" },
+    { "name": "像素飞鸟", "url": "games/bird/" }
+  ]
+}

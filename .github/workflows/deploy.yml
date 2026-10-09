@@ -1,0 +1,76 @@
+name: Deploy Lite Arcade
+
+# 静态站点 CI/CD：构建 → 校验 → 打包 → 发布到 GitHub Pages
+# 其它平台（Netlify / Vercel / Cloudflare Pages）可直接复用 deploy/ 下对应配置，
+# 或改用本工作流产出的 lite-arcade-dist 构件上传。
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+    inputs:
+      base_url:
+        description: "站点 Base URL（canonical / og:url / sitemap）"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: 构建与校验
+    runs-on: windows-latest
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 生产化构建（含元数据 / 结构化数据 / 内链 / 语义与可访问性校验）
+        shell: pwsh
+        run: |
+          $baseUrl = "${{ github.event.inputs.base_url }}"
+          if (-not $baseUrl) { $baseUrl = "${{ vars.SITE_BASE_URL }}" }
+          if (-not $baseUrl) {
+            $baseUrl = "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}"
+          }
+          ./deploy/build.ps1 -BaseUrl $baseUrl
+
+      - name: 前端脚本语法校验
+        shell: cmd
+        working-directory: dist
+        run: cscript //nologo //e:jscript "..\deploy\check-js.js"
+
+      - name: 上传 Pages 构件
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: 上传分发包（供其它静态托管使用）
+        if: github.event_name == 'workflow_dispatch'
+        uses: actions/upload-artifact@v4
+        with:
+          name: lite-arcade-dist
+          path: dist
+          retention-days: 14
+
+  deploy:
+    name: 发布到 GitHub Pages
+    needs: build
+    if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master') && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: 部署
+        id: deployment
+        uses: actions/deploy-pages@v4
