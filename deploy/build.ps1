@@ -63,6 +63,11 @@ $year        = (Get-Date).ToString("yyyy")
 Write-Step "站点：$($site.name)"
 Write-Step "Base URL：$($site.baseUrl)"
 
+# ---------------------------------------------------------------- 生成图片资源（封面 / 图标 / CC0 游戏配图）
+Write-Step "生成图片资源"
+try { & "$PSScriptRoot\gen-assets.ps1" | Out-Null } catch { Write-Warn "gen-assets.ps1 执行异常：$_" }
+try { & "$PSScriptRoot\fetch-covers.ps1" -Key $env:PIXABAY_KEY | Out-Null } catch { Write-Warn "fetch-covers.ps1 执行异常：$_" }
+
 # ---------------------------------------------------------------- 清理与复制
 if (Test-Path $OutDir) { Remove-Item $OutDir -Recurse -Force }
 New-Item -ItemType Directory -Path $OutDir -Force | Out-Null
@@ -133,7 +138,7 @@ if ((Test-Path $tplPath) -and $games.Count -gt 0) {
         else { $gTitleEn = ""; $gFullName = $gName }
         $orgId   = $site.baseUrl + "/#organization"
         $webId   = $site.baseUrl + "/#website"
-        $imgUrl  = $site.baseUrl + "/assets/img/og-cover.png"
+        $imgUrl  = $site.baseUrl + "/assets/img/covers/" + $g.slug + ".jpg"
         $rootUrl = $site.baseUrl + "/"
         $listUrl = $site.baseUrl + "/games/"
 

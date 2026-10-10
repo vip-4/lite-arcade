@@ -353,3 +353,25 @@ kbd {
   .topbar, .toolbar, .controls, .footer { display: none !important; }
   body { background: #fff; color: #000; }
 }
+
+/* ------------------------------ 游戏配图 ------------------------------ */
+.game-figure {
+  margin: 18px 0 0;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--bg-card);
+}
+.game-cover {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+.game-figure figcaption {
+  padding: 10px 14px;
+  font-size: .82rem;
+  color: var(--text-mute);
+  border-top: 1px solid var(--line);
+}

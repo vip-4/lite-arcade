@@ -19,7 +19,7 @@
 <meta property="og:title" content="{{GAME_NAME}}{{GAME_TITLE_EN}} — 在线免费玩">
 <meta property="og:description" content="{{GAME_META}}">
 <meta property="og:url" content="{{SITE_URL}}/games/{{GAME_SLUG}}/">
-<meta property="og:image" content="{{SITE_URL}}/assets/img/og-cover.png">
+<meta property="og:image" content="{{SITE_URL}}/assets/img/covers/{{GAME_SLUG}}.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="{{GAME_NAME}}（{{GAME_EN}}）游戏画面">
@@ -27,7 +27,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{GAME_NAME}}{{GAME_TITLE_EN}} — 在线免费玩">
 <meta name="twitter:description" content="{{GAME_META}}">
-<meta name="twitter:image" content="{{SITE_URL}}/assets/img/og-cover.png">
+<meta name="twitter:image" content="{{SITE_URL}}/assets/img/covers/{{GAME_SLUG}}.jpg">
 
 <link rel="manifest" href="../../manifest.webmanifest">
 <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
@@ -146,6 +146,12 @@
       <h2 id="answer-title">{{GAME_NAME}}是什么？</h2>
       <p>{{GAME_SUMMARY}}</p>
     </div>
+    <figure class="game-figure">
+      <img class="game-cover" src="../../assets/img/covers/{{GAME_SLUG}}.jpg"
+           alt="{{GAME_NAME}}（{{GAME_EN}}）主题配图：复古街机与休闲游戏场景"
+           loading="lazy" width="800" height="450">
+      <figcaption>{{GAME_NAME}} 游戏风格示意（CC0 授权配图，本地内置）</figcaption>
+    </figure>
   </section>
 
   <!-- ---------------- FAQ ---------------- -->
