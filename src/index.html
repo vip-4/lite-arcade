@@ -157,6 +157,12 @@
   ]
 }
 </script>
+
+<!-- 3D 首屏：自托管 Three.js（importmap 指向本地 vendor，零外部依赖） -->
+<script type="importmap">
+{ "imports": { "three": "./assets/vendor/three.module.js" } }
+</script>
+<script type="module" src="./assets/js/hero3d.js"></script>
 </head>
 
 <body>
@@ -231,6 +237,17 @@
         </ul>
       </aside>
     </div>
+  </section>
+
+  <!-- ============================ 3D 首屏（Blender MCP 资产；零外部依赖，自动降级） ============================ -->
+  <section class="section wrap" aria-labelledby="hero3d-title" style="padding-top:8px">
+    <h2 class="sr-only" id="hero3d-title">3D 首屏主视觉</h2>
+    <div id="hero3d" class="hero3d" data-src="./assets/3d/hero.glb"
+         role="img" aria-label="Lite Arcade 3D 首屏：霓虹风格的街机游戏元素，由 Blender MCP 生成并自托管">
+      <img data-poster class="hero3d-poster" src="./assets/img/og-cover.png"
+           alt="Lite Arcade 品牌主视觉（霓虹渐变）" width="1200" height="630">
+    </div>
+    <p class="hero3d-cap">3D 主视觉由 Blender MCP 生成并自托管；尊重“减少动效”偏好，无 WebGL 时自动回退为静态封面。</p>
   </section>
 
   <!-- ============================ 内置游戏 ============================ -->
