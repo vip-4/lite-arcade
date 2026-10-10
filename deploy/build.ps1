@@ -223,6 +223,30 @@ if ((Test-Path $tplPath) -and $games.Count -gt 0) {
 }
 "@
 
+        # ---- 老虎机主题：控制按钮与主题 JSON ----
+        $themeKey = ''; $themeJson = ''
+        if ($g.script -eq 'slot.js') {
+          $themeKey = $g.slug
+          $themeJson = ($g.theme | ConvertTo-Json -Compress -Depth 6)
+          $g | Add-Member -MemberType NoteProperty -Name 'genericControls' -Value @() -Force
+          $g | Add-Member -MemberType NoteProperty -Name 'slotControls' -Value @(
+            [pscustomobject]@{ cls='btn btn-primary'; action='spin';     label='🎰 转动' },
+            [pscustomobject]@{ cls='btn';           action='bet';      label='下注 +' },
+            [pscustomobject]@{ cls='btn';           action='maxbet';   label='最大注' },
+            [pscustomobject]@{ cls='btn';           action='autospin'; label='自动' },
+            [pscustomobject]@{ cls='btn';           action='mute';     label='🔊' }
+          ) -Force
+          $g | Add-Member -MemberType NoteProperty -Name 'isSlot' -Value @('1') -Force
+        } else {
+          $g | Add-Member -MemberType NoteProperty -Name 'genericControls' -Value @(
+            [pscustomobject]@{ cls='btn btn-primary'; action='start';   label='开始游戏' },
+            [pscustomobject]@{ cls='btn btn-ghost';   action='toggle';  label='暂停 / 继续' },
+            [pscustomobject]@{ cls='btn btn-ghost';   action='restart'; label='重新开始' }
+          ) -Force
+          $g | Add-Member -MemberType NoteProperty -Name 'slotControls' -Value @() -Force
+          $g | Add-Member -MemberType NoteProperty -Name 'isSlot' -Value @() -Force
+        }
+
         $tokens = @{
             "GAME_NAME"       = $g.name
             "GAME_EN"         = $g.en
@@ -237,6 +261,8 @@ if ((Test-Path $tplPath) -and $games.Count -gt 0) {
             "GAME_WIDTH"      = [string]$g.width
             "GAME_HEIGHT"     = [string]$g.height
             "GAME_SCRIPT"     = $g.script
+            "GAME_THEME"      = $themeKey
+            "GAME_THEME_JSON" = $themeJson
         }
 
         $page = Expand-GameLoops $tpl $g

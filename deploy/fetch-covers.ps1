@@ -28,7 +28,11 @@ $queries = @{
     "tetris"   = @("color blocks", "tetris blocks")
     "memory"   = @("playing cards", "memory game")
     "bird"     = @("pixel bird", "small bird")
-    "slot"     = @("slot machine", "casino chips")
+    "slot-classic" = @("slot machine", "casino chips")
+    "slot-fruit"   = @("fruit slot machine", "casino fruit")
+    "slot-egypt"   = @("egyptian casino", "pyramid treasure")
+    "slot-panda"   = @("panda casino", "bamboo luck")
+    "slot-diamond" = @("diamond casino", "luxury jewels")
 }
 
 function Resize-Crop([string]$srcPath, [string]$destPath, [int]$tw, [int]$th, [int]$quality) {

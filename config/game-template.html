@@ -64,7 +64,7 @@
 
     <div class="game-layout">
       <!-- ---------------- 游戏区 ---------------- -->
-      <div data-game>
+      <div data-game data-theme="{{GAME_THEME}}">
         <div class="stage">
           <div class="stage-head">
             <span aria-hidden="true" style="font-size:1.6rem">{{GAME_EMOJI}}</span>
@@ -91,10 +91,13 @@
           </div>
 
           <div class="controls">
-            <button class="btn btn-primary" type="button" data-action="start">开始游戏</button>
-            <button class="btn btn-ghost" type="button" data-action="toggle">暂停 / 继续</button>
-            <button class="btn btn-ghost" type="button" data-action="restart">重新开始</button>
+            {{#genericControls}}<button class="{{item.cls}}" type="button" data-action="{{item.action}}">{{item.label}}</button>
+            {{/genericControls}}
+            {{#slotControls}}<button class="{{item.cls}}" type="button" data-slot="{{item.action}}">{{item.label}}</button>
+            {{/slotControls}}
+            {{#isSlot}}<p class="disclaimer">⚠️ 本游戏仅供娱乐，不涉及任何真实金钱投注。</p>{{/isSlot}}
           </div>
+          <p class="sr-only" id="slot-live" aria-live="polite"></p>
         </div>
 
         <p class="source-line">提示：得分与最高分保存在浏览器 <code>localStorage</code>，不会上传服务器。快捷键：<kbd>空格</kbd> 开始/暂停 · <kbd>R</kbd> 重开 · <kbd>P</kbd> 暂停。</p>
@@ -229,6 +232,7 @@
 </footer>
 
 <script src="../../assets/js/game-core.js" defer></script>
+<script type="application/json" id="slot-theme-data">{{GAME_THEME_JSON}}</script>
 <script src="../../assets/js/games/{{GAME_SCRIPT}}" defer></script>
 </body>
 </html>

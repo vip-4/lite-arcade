@@ -227,44 +227,294 @@
     "related": ["breakout", "snake", "tetris"]
     },
     {
-    "slug": "slot",
-    "name": "幸运老虎机",
-    "en": "Slot Machine",
+    "slug": "slot-classic",
+    "name": "经典幸运7老虎机",
+    "en": "Classic 7 Slot",
     "emoji": "🎰",
     "genre": "休闲 / 老虎机",
     "hudExtra": [
     { "label": "下注", "key": "bet" },
-    { "label": "奖励", "key": "win" }
+    { "label": "奖励", "key": "win" },
+    { "label": "次数", "key": "spins" }
     ],
     "width": 500,
     "height": 330,
     "script": "slot.js",
-    "metaDescription": "Lite Arcade 在线幸运老虎机：5 转轮 × 3 行、5 条赔付线，含 Wild 万能符号与 Scatter 免费旋转，原生 Canvas 实现、零依赖开源。",
-    "keywords": ["老虎机", "Slot Machine", "幸运老虎机", "老虎机游戏", "HTML5 游戏", "开源小游戏"],
-    "summary": "Lite Arcade 的幸运老虎机采用 5 转轮 × 3 行布局、5 条固定赔付线，符号出现概率由权重表控制；⭐ Wild 可替代除 💎 Scatter 外的任意符号，💎 在任意位置出现 3 个即触发 8 次免费旋转且奖金翻倍。",
+    "metaDescription": "Lite Arcade 经典幸运7老虎机：5 转轮 × 3 行、5 条赔付线，含 Wild 与 Scatter 免费旋转，原生 Canvas 实现、零依赖开源。",
+    "keywords": ["老虎机", "Slot Machine", "经典老虎机", "幸运7", "HTML5 游戏", "开源小游戏"],
+    "summary": "经典幸运7老虎机采用 5 转轮 × 3 行、5 条固定赔付线；⭐ Wild 替代除 💎 Scatter 外任意符号，7️⃣ 三连为最高赔率，💎 出现 3 个触发 8 次免费旋转且奖金翻倍。",
     "difficulty": "休闲",
     "controls": [
-    { "key": "点击画布 / Enter", "desc": "下注并转动转轮（余额足够时）" },
-    { "key": "B", "desc": "循环切换下注档位（10 / 20 / 50 / 100）" },
-    { "key": "空格 / 暂停按钮", "desc": "开始与暂停" },
-    { "key": "R", "desc": "重新开局，余额重置为 1000" }
+    { "key": "🎰 转动 / Enter / 点击画布", "desc": "下注并转动转轮" },
+    { "key": "B / 下注 +", "desc": "循环切换下注档位（10/20/50/100）" },
+    { "key": "最大注", "desc": "直接拉满当前下注档位" },
+    { "key": "自动", "desc": "连续自动旋转，余额不足时停止" },
+    { "key": "空格 / 暂停", "desc": "开始与暂停；R 重开" }
     ],
     "howto": [
-    "点击“开始游戏”，棋盘显示初始转轮，余额 1000、默认下注 20。",
-    "点击画布或按 Enter 下注并转动；转轮依次停下后自动判定 5 条赔付线。",
+    "点击“开始游戏”显示初始转轮，余额 1000、默认下注 20。",
+    "点「🎰 转动」或按 Enter 下注转动，转轮依次停下后自动判定 5 条赔付线。",
     "相同符号从左连成一线即中奖，🍒 两连也可派彩，7️⃣ 三连为最高固定赔率。",
-    "任意位置出现 3 个 💎 触发 8 次免费旋转，期间所有奖金翻倍；余额不足则游戏结束。"
+    "任意位置出现 3 个 💎 触发 8 次免费旋转，期间所有奖金翻倍；余额不足则结束。"
     ],
     "tips": [
-    "免费旋转不扣余额且奖金翻倍，是积累分数最高效的窗口，遇到 Scatter 优先期待。",
-    "Wild ⭐ 能帮你补齐断线，判定时从最左侧开始连续匹配即计入。",
-    "下注档位影响每条线的赔付基数，余额紧张时调低 B 档位可延长游戏回合。"
+    "免费旋转不扣余额且奖金翻倍，是积累分数最高效的窗口。",
+    "Wild ⭐ 能补齐断线，判定从最左侧连续匹配即计入。",
+    "余额紧张时调低下注档位可延长游戏回合。"
     ],
     "faq": [
-    { "q": "幸运老虎机有多少条赔付线？", "a": "共 5 条：上、中、下三条横线，以及两条对角斜线；每条线独立判定，可同时多条中奖。" },
-    { "q": "Wild 和 Scatter 有什么区别？", "a": "⭐ Wild 在赔付线中可替代除 Scatter 外的任意符号来凑线；💎 Scatter 不计入赔付线，但在全盘任意位置出现 3 个即触发免费旋转并单独派彩。" },
-    { "q": "最高分怎么保存？", "a": "余额峰值保存在浏览器 localStorage（键名 lite-arcade:slot），纯本地、不上传服务器。" }
+    { "q": "有多少条赔付线？", "a": "共 5 条：上中下三条横线加两条对角斜线，每条线独立判定，可同时多条中奖。" },
+    { "q": "Wild 和 Scatter 区别？", "a": "⭐ Wild 在赔付线中替代除 Scatter 外任意符号；💎 Scatter 不计入赔付线，但全盘出现 3 个即触发免费旋转并单独派彩。" },
+    { "q": "分数怎么保存？", "a": "余额峰值保存在浏览器 localStorage（按主题分别存储），纯本地、不上传服务器。" }
     ],
-    "related": ["snake", "2048", "tetris"]
+    "related": ["slot-fruit", "slot-egypt", "snake"],
+    "theme": {
+      "id": "slot-classic", "name": "经典幸运7", "width": 500, "height": 330,
+      "startBalance": 1000, "betLevels": [10, 20, 50, 100],
+      "freeSpinsNeeded": 3, "freeSpinsCount": 8, "freeSpinMult": 2,
+      "palette": { "bg": "#0b0510", "reel": "rgba(255,90,120,.35)", "win": "#ffd166", "text": "#fff" },
+      "symbols": [
+        { "id": "cherry", "icon": "🍒", "alt": "樱桃", "weight": 22, "pay": { "2": 2, "3": 5 } },
+        { "id": "lemon", "icon": "🍋", "alt": "柠檬", "weight": 20, "pay": { "3": 8 } },
+        { "id": "grape", "icon": "🍇", "alt": "葡萄", "weight": 18, "pay": { "3": 10 } },
+        { "id": "bell", "icon": "🔔", "alt": "铃铛", "weight": 12, "pay": { "3": 20 } },
+        { "id": "seven", "icon": "7️⃣", "alt": "幸运7", "weight": 6, "pay": { "3": 100 } },
+        { "id": "wild", "icon": "⭐", "alt": "万能", "weight": 6, "pay": { "3": 50 }, "wild": true },
+        { "id": "scatter", "icon": "💎", "alt": "钻石", "weight": 5, "pay": { "3": 5 }, "scatter": true }
+      ],
+      "paylines": [ [1,1,1,1,1], [0,0,0,0,0], [2,2,2,2,2], [0,1,2,1,0], [2,1,0,1,2] ]
+    }
+    },
+    {
+    "slug": "slot-fruit",
+    "name": "水果派对老虎机",
+    "en": "Fruit Fiesta Slot",
+    "emoji": "🍉",
+    "genre": "休闲 / 老虎机",
+    "hudExtra": [
+    { "label": "下注", "key": "bet" },
+    { "label": "奖励", "key": "win" },
+    { "label": "次数", "key": "spins" }
+    ],
+    "width": 500,
+    "height": 330,
+    "script": "slot.js",
+    "metaDescription": "Lite Arcade 水果派对老虎机：5 转轮 × 3 行、5 条赔付线，低注高频，含 Wild 与 Scatter 免费旋转，原生 Canvas 实现。",
+    "keywords": ["水果老虎机", "Fruit Slot", "老虎机", "水果派对", "HTML5 游戏", "开源小游戏"],
+    "summary": "水果派对老虎机以多种水果符号为主，低注高频、赔付线 5 条；🌟 Wild 替代除 🍑 Scatter 外任意符号，🍑 出现 3 个触发免费旋转。",
+    "difficulty": "休闲",
+    "controls": [
+    { "key": "🎰 转动 / Enter", "desc": "下注并转动转轮" },
+    { "key": "下注 + / B", "desc": "切换下注档位" },
+    { "key": "最大注", "desc": "拉满下注档位" },
+    { "key": "自动", "desc": "连续自动旋转" },
+    { "key": "空格 / R", "desc": "暂停 / 重开" }
+    ],
+    "howto": [
+    "点击“开始游戏”，初始余额 1000。",
+    "点「🎰 转动」或按 Enter 下注转动，转轮依次停下后判定赔付线。",
+    "水果符号从左连成一线即中奖，组合越稀有赔率越高。",
+    "任意位置出现 3 个 🍑 触发免费旋转；余额不足则结束。"
+    ],
+    "tips": [
+    "低注高频策略适合稳定积攒旋转次数。",
+    "🌟 Wild 常能补齐断线形成连击。",
+    "用自动旋转可快速跑完统计，观察触发频率。"
+    ],
+    "faq": [
+    { "q": "水果派对与其他主题区别？", "a": "符号主题不同、赔付表与配色不同，但共用同一套引擎与 5 条赔付线规则。" },
+    { "q": "触发免费旋转难吗？", "a": "🍑 Scatter 权重为 6，出现 3 个即触发，属较常见事件。" }
+    ],
+    "related": ["slot-classic", "slot-panda", "2048"],
+    "theme": {
+      "id": "slot-fruit", "name": "水果派对", "width": 500, "height": 330,
+      "startBalance": 1000, "betLevels": [10, 20, 50, 100],
+      "freeSpinsNeeded": 3, "freeSpinsCount": 8, "freeSpinMult": 2,
+      "palette": { "bg": "#07140a", "reel": "rgba(120,255,150,.3)", "win": "#7CFC00", "text": "#fff" },
+      "symbols": [
+        { "id": "cherry", "icon": "🍒", "alt": "樱桃", "weight": 20, "pay": { "2": 2, "3": 5 } },
+        { "id": "orange", "icon": "🍊", "alt": "橙子", "weight": 20, "pay": { "3": 8 } },
+        { "id": "melon", "icon": "🍉", "alt": "西瓜", "weight": 18, "pay": { "3": 10 } },
+        { "id": "berry", "icon": "🍓", "alt": "草莓", "weight": 16, "pay": { "3": 15 } },
+        { "id": "banana", "icon": "🍌", "alt": "香蕉", "weight": 14, "pay": { "3": 25 } },
+        { "id": "wild", "icon": "🌟", "alt": "万能", "weight": 8, "pay": { "3": 50 }, "wild": true },
+        { "id": "scatter", "icon": "🍑", "alt": "蜜桃", "weight": 6, "pay": { "3": 5 }, "scatter": true }
+      ],
+      "paylines": [ [1,1,1,1,1], [0,0,0,0,0], [2,2,2,2,2], [0,1,2,1,0], [2,1,0,1,2] ]
+    }
+    },
+    {
+    "slug": "slot-egypt",
+    "name": "埃及宝藏老虎机",
+    "en": "Egypt Treasures Slot",
+    "emoji": "🔱",
+    "genre": "休闲 / 老虎机",
+    "hudExtra": [
+    { "label": "下注", "key": "bet" },
+    { "label": "奖励", "key": "win" },
+    { "label": "次数", "key": "spins" }
+    ],
+    "width": 500,
+    "height": 330,
+    "script": "slot.js",
+    "metaDescription": "Lite Arcade 埃及宝藏老虎机：5 转轮 × 3 行、5 条赔付线，Scatter 为圣甲虫，触发 10 次免费旋转，原生 Canvas 实现。",
+    "keywords": ["埃及老虎机", "Egypt Slot", "宝藏老虎机", "老虎机", "HTML5 游戏", "开源小游戏"],
+    "summary": "埃及宝藏老虎机以法老文明符号为主题，5 转轮 × 3 行、5 条赔付线；🪲 Scatter 出现 3 个触发 10 次免费旋转，👁️ 与 🐫 为高赔率符号。",
+    "difficulty": "休闲",
+    "controls": [
+    { "key": "🎰 转动 / Enter", "desc": "下注并转动转轮" },
+    { "key": "下注 + / B", "desc": "切换下注档位" },
+    { "key": "最大注", "desc": "拉满下注档位" },
+    { "key": "自动", "desc": "连续自动旋转" },
+    { "key": "空格 / R", "desc": "暂停 / 重开" }
+    ],
+    "howto": [
+    "点击“开始游戏”，初始余额 1000。",
+    "点「🎰 转动」或按 Enter 下注转动，转轮停下后判定赔付线。",
+    "法老符号从左连成一线即中奖，👁️ 与 🐫 赔率更高。",
+    "任意位置出现 3 个 🪲 触发 10 次免费旋转；余额不足则结束。"
+    ],
+    "tips": [
+    "免费旋转次数更多（10 次），积累分数窗口更长。",
+    "☀️ Wild 权重较高，连击概率优于其他主题。",
+    "高赔率符号权重低，适合高注博取大额派彩。"
+    ],
+    "faq": [
+    { "q": "为什么免费旋转是 10 次？", "a": "埃及宝藏主题配置为 freeSpinsCount=10，其他主题多为 8，属主题差异化设计。" },
+    { "q": "Scatter 是什么符号？", "a": "🪲 圣甲虫，全盘出现 3 个触发免费旋转并单独派彩。" }
+    ],
+    "related": ["slot-classic", "slot-diamond", "tetris"],
+    "theme": {
+      "id": "slot-egypt", "name": "埃及宝藏", "width": 500, "height": 330,
+      "startBalance": 1000, "betLevels": [10, 20, 50, 100],
+      "freeSpinsNeeded": 3, "freeSpinsCount": 10, "freeSpinMult": 2,
+      "palette": { "bg": "#140d05", "reel": "rgba(212,175,55,.35)", "win": "#FFD700", "text": "#fff" },
+      "symbols": [
+        { "id": "ankh", "icon": "🔱", "alt": "安卡", "weight": 20, "pay": { "2": 2, "3": 5 } },
+        { "id": "snake", "icon": "🐍", "alt": "眼镜蛇", "weight": 18, "pay": { "3": 8 } },
+        { "id": "jar", "icon": "🏺", "alt": "陶罐", "weight": 16, "pay": { "3": 12 } },
+        { "id": "eye", "icon": "👁️", "alt": "荷鲁斯之眼", "weight": 12, "pay": { "3": 25 } },
+        { "id": "camel", "icon": "🐫", "alt": "骆驼", "weight": 10, "pay": { "3": 50 } },
+        { "id": "wild", "icon": "☀️", "alt": "太阳", "weight": 8, "pay": { "3": 60 }, "wild": true },
+        { "id": "scatter", "icon": "🪲", "alt": "圣甲虫", "weight": 6, "pay": { "3": 5 }, "scatter": true }
+      ],
+      "paylines": [ [1,1,1,1,1], [0,0,0,0,0], [2,2,2,2,2], [0,1,2,1,0], [2,1,0,1,2] ]
+    }
+    },
+    {
+    "slug": "slot-panda",
+    "name": "幸运熊猫老虎机",
+    "en": "Lucky Panda Slot",
+    "emoji": "🐼",
+    "genre": "休闲 / 老虎机",
+    "hudExtra": [
+    { "label": "下注", "key": "bet" },
+    { "label": "奖励", "key": "win" },
+    { "label": "次数", "key": "spins" }
+    ],
+    "width": 500,
+    "height": 330,
+    "script": "slot.js",
+    "metaDescription": "Lite Arcade 幸运熊猫老虎机：5 转轮 × 3 行、5 条赔付线，Wild 权重更高、连击友好，含 Scatter 免费旋转，原生 Canvas 实现。",
+    "keywords": ["熊猫老虎机", "Panda Slot", "幸运熊猫", "老虎机", "HTML5 游戏", "开源小游戏"],
+    "summary": "幸运熊猫老虎机以竹林萌宠为主题，5 转轮 × 3 行、5 条赔付线；⭐ Wild 权重高于其他主题，更易形成连击，🎍 出现 3 个触发免费旋转。",
+    "difficulty": "休闲",
+    "controls": [
+    { "key": "🎰 转动 / Enter", "desc": "下注并转动转轮" },
+    { "key": "下注 + / B", "desc": "切换下注档位" },
+    { "key": "最大注", "desc": "拉满下注档位" },
+    { "key": "自动", "desc": "连续自动旋转" },
+    { "key": "空格 / R", "desc": "暂停 / 重开" }
+    ],
+    "howto": [
+    "点击“开始游戏”，初始余额 1000。",
+    "点「🎰 转动」或按 Enter 下注转动，转轮停下后判定赔付线。",
+    "熊猫符号从左连成一线即中奖，Wild 连击友好。",
+    "任意位置出现 3 个 🎍 触发免费旋转；余额不足则结束。"
+    ],
+    "tips": [
+    "Wild 权重高，长线连击更常见，适合稳健型玩家。",
+    "🪙 与 🍡 属中高赔率，组合可观。",
+    "用自动旋转配合高 Wild 权重，统计中奖频率更高。"
+    ],
+    "faq": [
+    { "q": "熊猫主题强在哪？", "a": "Wild ⭐ 权重为 10（其他主题多为 6–8），更易补齐断线形成连击。" },
+    { "q": "Scatter 是什么？", "a": "🎍 竹，全盘出现 3 个触发免费旋转并单独派彩。" }
+    ],
+    "related": ["slot-fruit", "slot-classic", "memory"],
+    "theme": {
+      "id": "slot-panda", "name": "幸运熊猫", "width": 500, "height": 330,
+      "startBalance": 1000, "betLevels": [10, 20, 50, 100],
+      "freeSpinsNeeded": 3, "freeSpinsCount": 8, "freeSpinMult": 2,
+      "palette": { "bg": "#05140d", "reel": "rgba(120,220,140,.32)", "win": "#34d399", "text": "#fff" },
+      "symbols": [
+        { "id": "panda", "icon": "🐼", "alt": "熊猫", "weight": 18, "pay": { "2": 2, "3": 6 } },
+        { "id": "bamboo", "icon": "🎋", "alt": "竹子", "weight": 18, "pay": { "3": 8 } },
+        { "id": "coin", "icon": "🪙", "alt": "金币", "weight": 16, "pay": { "3": 12 } },
+        { "id": "dango", "icon": "🍡", "alt": "团子", "weight": 14, "pay": { "3": 18 } },
+        { "id": "leaf", "icon": "🍃", "alt": "竹叶", "weight": 12, "pay": { "3": 30 } },
+        { "id": "wild", "icon": "⭐", "alt": "万能", "weight": 10, "pay": { "3": 50 }, "wild": true },
+        { "id": "scatter", "icon": "🎍", "alt": "翠竹", "weight": 6, "pay": { "3": 5 }, "scatter": true }
+      ],
+      "paylines": [ [1,1,1,1,1], [0,0,0,0,0], [2,2,2,2,2], [0,1,2,1,0], [2,1,0,1,2] ]
+    }
+    },
+    {
+    "slug": "slot-diamond",
+    "name": "钻石豪门老虎机",
+    "en": "Diamond Riches Slot",
+    "emoji": "💎",
+    "genre": "休闲 / 老虎机",
+    "hudExtra": [
+    { "label": "下注", "key": "bet" },
+    { "label": "奖励", "key": "win" },
+    { "label": "次数", "key": "spins" }
+    ],
+    "width": 500,
+    "height": 330,
+    "script": "slot.js",
+    "metaDescription": "Lite Arcade 钻石豪门老虎机：5 转轮 × 3 行、5 条赔付线，免费旋转倍率达 ×3，含 Wild 与 Scatter，原生 Canvas 实现。",
+    "keywords": ["钻石老虎机", "Diamond Slot", "钻石豪门", "老虎机", "HTML5 游戏", "开源小游戏"],
+    "summary": "钻石豪门老虎机以珠宝为主题，5 转轮 × 3 行、5 条赔付线；免费旋转倍率高达 ×3，👑 为高赔率符号，💎 出现 3 个触发免费旋转。",
+    "difficulty": "休闲",
+    "controls": [
+    { "key": "🎰 转动 / Enter", "desc": "下注并转动转轮" },
+    { "key": "下注 + / B", "desc": "切换下注档位" },
+    { "key": "最大注", "desc": "拉满下注档位" },
+    { "key": "自动", "desc": "连续自动旋转" },
+    { "key": "空格 / R", "desc": "暂停 / 重开" }
+    ],
+    "howto": [
+    "点击“开始游戏”，初始余额 1000。",
+    "点「🎰 转动」或按 Enter 下注转动，转轮停下后判定赔付线。",
+    "珠宝符号从左连成一线即中奖，👑 三连为高额赔率。",
+    "任意位置出现 3 个 💎 触发免费旋转，倍率 ×3；余额不足则结束。"
+    ],
+    "tips": [
+    "免费旋转期间倍率 ×3，是冲击高分的关键窗口。",
+    "💍 与 👑 权重低但赔率高，适合高注博取。",
+    "配合自动旋转可在免费旋转中快速叠加倍数收益。"
+    ],
+    "faq": [
+    { "q": "倍率为什么是 ×3？", "a": "钻石豪门主题配置 freeSpinMult=3，高于其他主题的 ×2，属差异化设计。" },
+    { "q": "Scatter 是什么？", "a": "💎 钻石，全盘出现 3 个触发免费旋转并单独派彩。" }
+    ],
+    "related": ["slot-egypt", "slot-classic", "breakout"],
+    "theme": {
+      "id": "slot-diamond", "name": "钻石豪门", "width": 500, "height": 330,
+      "startBalance": 1000, "betLevels": [10, 20, 50, 100],
+      "freeSpinsNeeded": 3, "freeSpinsCount": 8, "freeSpinMult": 3,
+      "palette": { "bg": "#050a16", "reel": "rgba(110,180,255,.35)", "win": "#5eead4", "text": "#fff" },
+      "symbols": [
+        { "id": "gem", "icon": "💠", "alt": "宝石", "weight": 20, "pay": { "2": 2, "3": 6 } },
+        { "id": "blue", "icon": "🔷", "alt": "蓝钻", "weight": 18, "pay": { "3": 10 } },
+        { "id": "amber", "icon": "🔶", "alt": "琥珀", "weight": 16, "pay": { "3": 18 } },
+        { "id": "crown", "icon": "👑", "alt": "皇冠", "weight": 10, "pay": { "3": 80 } },
+        { "id": "ring", "icon": "💍", "alt": "钻戒", "weight": 8, "pay": { "3": 40 } },
+        { "id": "wild", "icon": "⭐", "alt": "万能", "weight": 8, "pay": { "3": 50 }, "wild": true },
+        { "id": "scatter", "icon": "💎", "alt": "钻石", "weight": 6, "pay": { "3": 5 }, "scatter": true }
+      ],
+      "paylines": [ [1,1,1,1,1], [0,0,0,0,0], [2,2,2,2,2], [0,1,2,1,0], [2,1,0,1,2] ]
+    }
     }
     ]

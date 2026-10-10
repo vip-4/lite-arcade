@@ -245,7 +245,7 @@
       (function (btn) {
         var act = btn.getAttribute('data-action');
         btn.addEventListener('click', function () {
-          if (act === 'start') { game.reset(); game.start(); }
+          if (act === 'start') { game.start(); }
           else if (act === 'pause') game.pause();
           else if (act === 'restart') { game.reset(); game.start(); }
           else if (act === 'toggle') game.toggle();
