@@ -245,6 +245,46 @@ if ((Test-Path $tplPath) -and $games.Count -gt 0) {
     Write-Ok "已生成 $($games.Count) 个游戏详情页"
 }
 
+# ---------------------------------------------------------------- HTML 站点地图页（/sitemap/）
+$tplSitemap = Join-Path $CfgDir "sitemap-template.html"
+if (Test-Path $tplSitemap) {
+    $stpl = Get-Content $tplSitemap -Raw -Encoding UTF8
+    $spPages = @(
+        [pscustomobject]@{ rel = "../";            abs = "/";                title = $site.name;      desc = $site.description }
+        [pscustomobject]@{ rel = "../games/";       abs = "/games/";          title = "全部游戏";       desc = "Lite Arcade 内置的全部网页小游戏索引，可直接在浏览器游玩。" }
+    )
+    foreach ($g in $games) {
+        $gt = if ($g.en -and ($g.en -ne $g.name)) { "$($g.name) $($g.en)" } else { $g.name }
+        $spPages += [pscustomobject]@{ rel = "../games/$($g.slug)/"; abs = "/games/$($g.slug)/"; title = $gt; desc = $g.summary }
+    }
+    $spPages += [pscustomobject]@{ rel = "../about/"; abs = "/about/"; title = "关于与 GEO 优化"; desc = "关于 Lite Arcade 与 SEO/GEO 优化的说明。" }
+
+    $listSb = New-Object System.Text.StringBuilder
+    $partSb = New-Object System.Text.StringBuilder
+    $i = 0
+    foreach ($p in $spPages) {
+        [void]$listSb.AppendLine("          <li><a href=`"$($p.rel)`">$(Esc-Json $p.title)</a><p>$(Esc-Json $p.desc)</p></li>")
+        if ($i -gt 0) { [void]$partSb.Append(", ") }
+        [void]$partSb.Append('{"@type":"WebPage","name":"' + (Esc-Json $p.title) +
+            '","url":"' + $site.baseUrl + $p.abs + '","description":"' + (Esc-Json $p.desc) + '"}')
+        $i++
+    }
+
+    $sitemapJsonLd = '{ "@context":"https://schema.org", "@graph":[ ' +
+        '{ "@type":"WebPage", "@id":"' + $site.baseUrl + '/sitemap/#webpage", "url":"' + $site.baseUrl + '/sitemap/", ' +
+        '"name":"站点地图 — ' + (Esc-Json $site.shortName) + '", "description":"Lite Arcade 全部页面的人类可读站点地图。", ' +
+        '"isPartOf":{ "@id":"' + $site.baseUrl + '/#website" }, "inLanguage":"' + $site.lang + '", "dateModified":"' + $buildDate + '" }, ' +
+        '{ "@type":"CollectionPage", "@id":"' + $site.baseUrl + '/sitemap/#collection", "name":"Lite Arcade 站点地图", ' +
+        '"url":"' + $site.baseUrl + '/sitemap/", "isPartOf":{ "@id":"' + $site.baseUrl + '/#website" }, ' +
+        '"hasPart":[ ' + $partSb.ToString() + ' ] } ] }'
+
+    $stpl = $stpl.Replace("{{SITEMAP_LIST}}", $listSb.ToString()).Replace("{{SITEMAP_JSONLD}}", $sitemapJsonLd)
+    $smapDir = Join-Path $OutDir "sitemap"
+    New-Item -ItemType Directory -Path $smapDir -Force | Out-Null
+    [System.IO.File]::WriteAllText((Join-Path $smapDir "index.html"), $stpl, (New-Object System.Text.UTF8Encoding($false)))
+    Write-Ok "已生成 HTML 站点地图 /sitemap/"
+}
+
 # ---------------------------------------------------------------- 占位符替换
 $tokens = @{
     "SITE_URL"        = $site.baseUrl

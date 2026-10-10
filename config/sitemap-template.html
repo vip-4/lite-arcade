@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="{{SITE_LANG}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>站点地图 — {{SITE_SHORT_NAME}}</title>
+  <meta name="description" content="Lite Arcade 全部页面的人类可读站点地图：每个页面的链接与简介，便于搜索引擎与生成式引擎抓取与引用。">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="theme-color" content="{{THEME_COLOR}}">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="{{SITE_URL}}/sitemap/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{SITE_NAME}}">
+  <meta property="og:locale" content="{{SITE_LOCALE}}">
+  <meta property="og:title" content="站点地图 — {{SITE_SHORT_NAME}}">
+  <meta property="og:description" content="Lite Arcade 全部页面的人类可读站点地图。">
+  <meta property="og:url" content="{{SITE_URL}}/sitemap/">
+  <meta property="og:image" content="{{SITE_URL}}/assets/img/og-cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Lite Arcade 站点地图">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="站点地图 — {{SITE_SHORT_NAME}}">
+  <meta name="twitter:description" content="Lite Arcade 全部页面的人类可读站点地图。">
+  <meta name="twitter:image" content="{{SITE_URL}}/assets/img/og-cover.png">
+  <meta name="twitter:image:alt" content="Lite Arcade 站点地图">
+  <link rel="stylesheet" href="../assets/css/site.css">
+  <script type="application/ld+json">
+{{SITEMAP_JSONLD}}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主内容</a>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="../"><span class="brand-mark">🎮</span> {{SITE_SHORT_NAME}}</a>
+      <nav aria-label="主导航">
+        <a href="../">首页</a>
+        <a href="../games/">游戏</a>
+        <a href="../about/">关于</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <article class="panel" style="max-width: 880px; margin: 32px auto;">
+      <span class="eyebrow">站点导航</span>
+      <h1 id="sitemap-title">站点地图</h1>
+      <p class="lead">以下是 Lite Arcade 的全部页面。每个条目包含链接与一句话简介，供搜索引擎与 AI 摘要直接引用。</p>
+      <nav aria-label="站点地图页面列表">
+        <ul class="sitemap-list">
+{{SITEMAP_LIST}}
+        </ul>
+      </nav>
+    </article>
+  </main>
+  <footer class="footer">
+    <div class="wrap">
+      <span>© <span class="year">{{YEAR}}</span> {{SITE_AUTHOR}} · MIT 许可</span>
+      <span><a href="../sitemap.xml">sitemap.xml</a> · <a href="../llms.txt">llms.txt</a></span>
+    </div>
+  </footer>
+</body>
+</html>
