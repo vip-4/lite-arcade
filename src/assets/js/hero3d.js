@@ -24,12 +24,22 @@
   if (reduce || !hasWebGL()) { showPoster(); return; }
 
   var THREE;
-  Promise.resolve()
-    .then(function () { return import('three'); })
-    .then(function (mod) { THREE = mod; return fetch(container.getAttribute('data-src') || './assets/3d/hero.glb'); })
-    .then(function (r) { return r.arrayBuffer(); })
-    .then(function (buf) { init(buf); })
-    .catch(function (e) { console.warn('[hero3d] 加载失败，回退：', e); showPoster(); });
+  function start() {
+    Promise.resolve()
+      .then(function () { return import('three'); })
+      .then(function (mod) { THREE = mod; return fetch(container.getAttribute('data-src') || './assets/3d/hero.glb'); })
+      .then(function (r) { return r.arrayBuffer(); })
+      .then(function (buf) { init(buf); })
+      .catch(function (e) { console.warn('[hero3d] 加载失败，回退：', e); showPoster(); });
+  }
+  // 推迟到首屏绘制完成后的空闲时段，避免阻塞首屏（three 仅在支持 WebGL 且允许动效时加载）
+  if (document.readyState === 'complete') {
+    (window.requestIdleCallback || function (f) { setTimeout(f, 200); })(start);
+  } else {
+    window.addEventListener('load', function () {
+      (window.requestIdleCallback || function (f) { setTimeout(f, 200); })(start);
+    });
+  }
 
   function parseGLB(arrayBuffer) {
     var dv = new DataView(arrayBuffer);

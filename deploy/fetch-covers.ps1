@@ -28,6 +28,7 @@ $queries = @{
     "tetris"   = @("color blocks", "tetris blocks")
     "memory"   = @("playing cards", "memory game")
     "bird"     = @("pixel bird", "small bird")
+    "slot"     = @("slot machine", "casino chips")
 }
 
 function Resize-Crop([string]$srcPath, [string]$destPath, [int]$tw, [int]$th, [int]$quality) {
